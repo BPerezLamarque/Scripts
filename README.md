@@ -1,7 +1,7 @@
 # Scripts
 
 
-## Pipelines for dealing with metabarcoding data
+## Pipelines for analyzing metabarcoding data
 
 The folder  `Metabarcoding`  contains bash scripts to analyze metabarcoding data from Illumina paired-end sequencing. They can be used to cluster [OTUs at 97% (or any other thresholds)](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/pipeline_OTU97.sh), [ASV](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/pipeline_ASV.sh), or  [Swarm OTUs](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/pipeline_OTU_Swarm.sh) ([Mahé et al., 2014](https://peerj.com/articles/593/); [Mahé et al., 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4690345/pdf/peerj-03-1420.pdf)). They can be used for any marker gene (ITS, 16S, 18S...)
 
