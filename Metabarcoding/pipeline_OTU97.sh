@@ -6,10 +6,12 @@
 
 
 ## You first need to install PYTHON3, VSEARCH, and CUTADAPT
+## The python library numpy must also be installed (https://numpy.org/install/)
 ## see https://github.com/frederic-mahe/swarm/wiki/Fred's-metabarcoding-pipeline for details
 
 
 # You also need to download the python scripts OTU_contingency_table.py, map2qiime.py, and make_stats.py available in https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/
+
 # Store them in a given folder
 path_scripts="PATH_TOWARD_THE_SCRIPTS"
 
@@ -27,11 +29,11 @@ path_scripts="PATH_TOWARD_THE_SCRIPTS"
 # use 97% OTU of  Fungi + other Eukaryotes
 
 
-path="YOUR_WORKING_DIRECTORY"
-cd $path
+path_analyses="YOUR_WORKING_DIRECTORY"
+cd $path_analyses
 
 mkdir database/
-cd $path"/database/"
+cd $path_analyses"/database/"
 
 
 INPUT="UNITE_all_Euk_OTU97_1DB95C8AC0A80108BECAF1162D761A8D379AF43E2A4295A3EF353DD1632B645B.fasta" # UNITE database that you have previoulsy mannualt downloaded
@@ -61,11 +63,11 @@ sed '/^>/ s/;/|/g ; /^>/ s/ /_/g ; /^>/ s/_/ /1' > "${OUTPUT}"
 ##### If you are working with the 16S or 18S region (e.g. with the primers 799F and 1193R of the 16S region)   ##############
 
 
-path="YOUR_WORKING_DIRECTORY"
-cd $path
+path_analyses="YOUR_WORKING_DIRECTORY"
+cd $path_analyses
 
 mkdir database/
-cd $path"/database/"
+cd $path_analyses"/database/"
 
 
 RELEASE=138.1
@@ -112,13 +114,15 @@ rm ${INPUT}
 Marker="ITS2"
 # or Marker="16S"
 
-# Download the data and store them in a folder "raw_data"
 
-path="YOUR_WORKING_DIRECTORY"
-cd $path
+path_analyses="YOUR_WORKING_DIRECTORY"
+cd $path_analyses
 
 mkdir raw_data/
-cd $path"/raw_data/"
+# Download the data and store them in the folder "raw_data"
+
+mkdir process/
+cd $path_analyses"/process/"
 
 # Write the name of the paired-ended sequences
 INPUT_R1="../raw_data/210920_SN234_A_L001_ATXJ-7_R1.fastq"  # bz2, gz and uncompressed fastq files are allowed
@@ -212,7 +216,6 @@ done < "${MAPPING}"
 
 # Step 2-B: Perform the quality filtering
 
-cd $path
 
 # Discard sequences containing Ns, remove if >1 error on average, convert to fasta
 vsearch \
@@ -237,7 +240,7 @@ vsearch --quiet \
     --fastaout "${INPUT_REVCOMP}"
 
 
-mkdir $path/"Demultiplexed_data_"$Marker/
+mkdir "Demultiplexed_data_"$Marker/
 
 MIN_LENGTH=200
 
@@ -307,11 +310,9 @@ rm -f "${INPUT}" "${INPUT_REVCOMP}" "temp_"$Marker".fastq" "temp_"$Marker".fasta
 
 ## to see all the details: https://github.com/frederic-mahe/swarm/wiki/Fred's-metabarcoding-pipeline
 
-path="YOUR_WORKING_DIRECTORY"
-cd $path
+path_analyses="YOUR_WORKING_DIRECTORY"
 
-mkdir process/
-cd $path"/process/"
+cd $path_analyses"/process/"
 
 Marker="ITS2"
 database_taxonomy="UNITE_all_Euk_OTU97_ITS2_86F.fasta"
@@ -330,7 +331,7 @@ database_taxonomy="UNITE_all_Euk_OTU97_ITS2_86F.fasta"
 # Step 3-B: Dereplication of fasta file of all the reads using VSEARCH
 
 PREFIX=""
-cat $path/"Demultiplexed_data_"$Marker/"$PREFIX"*.fas > "reads_"$Marker".fa"
+cat $path_analyses/process/"Demultiplexed_data_"$Marker/"$PREFIX"*.fas > "reads_"$Marker".fa"
 
 
 vsearch \
@@ -425,7 +426,7 @@ python3 \
     "${OTUS}" \
     "${UCHIME}" \
     "${ASSIGNMENTS}" \
-    $path/"Demultiplexed_data_"$Marker/"$PREFIX"*.fas > "${OTU_TABLE}"
+    $path_analyses/process/"Demultiplexed_data_"$Marker/"$PREFIX"*.fas > "${OTU_TABLE}"
 
 
 # Filter per OTU size or spread, quality and chimeric status:
@@ -436,7 +437,7 @@ cat "${OTU_TABLE}" | awk '$5 == "N" && $4 >= 200 && $2 >= 10 && $6 >= 1' >> "${F
 
 
 # Total number of reads in the OTU table
-grep -v "OTU\tabundance" "${TABLE}" | cut -f2 | paste -sd+ - | bc
+grep -v "OTU\tabundance" "${OTU_TABLE}" | cut -f2 | paste -sd+ - | bc
 
 # Total number of reads in the filtered OTU table
 grep -v "OTU\tabundance" "${FILTERED}" | cut -f2 | paste -sd+ - | bc
