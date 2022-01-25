@@ -217,7 +217,7 @@ done < "${MAPPING}"
 # Step 2-B: Perform the quality filtering
 
 
-# Discard sequences containing Ns, remove if >1 error on average, convert to fasta
+# Discard sequences containing Ns, remove if >2 error on average, convert to fasta
 vsearch \
     --fastq_filter "MERGED_R1R2_"$Marker".fastq" \
     --fastq_maxns 0 \
