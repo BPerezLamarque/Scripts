@@ -372,7 +372,7 @@ vsearch --fasta_width 0 \
 
 
 
-##  Step 2-D: Chimera checking
+##  Step 3-D: Chimera checking
 
 vsearch --uchime_denovo "reads_"$Marker"_swarm_1f_final.fa" \
     --uchimeout "reads_"$Marker"_swarm_1f.uchime" --nonchimeras "reads_"$Marker"_swarm_1f_nonchimeras.fa"
@@ -380,7 +380,7 @@ vsearch --uchime_denovo "reads_"$Marker"_swarm_1f_final.fa" \
 
 
 
-##  Step 2-E: Assign taxonomy to OTUs using known reference sequences with blast
+##  Step 3-E: Assign taxonomy to OTUs using known reference sequences with blast
 
 
 # Number of threads can be set to 1
@@ -403,7 +403,7 @@ vsearch --usearch_global "reads_"$Marker"_swarm_1f_nonchimeras.fa" \
 
 
 
-##  Step 2-F:  Make the OTU table
+##  Step 3-F:  Make the OTU table
 
 STATS="stats_"$Marker"_swarm_1f.txt"
 OTUS="reads_"$Marker"_mapped_swarm_1f.txt"

@@ -376,14 +376,14 @@ python3 $path_scripts/make_stats.py "reads_"$Marker"_ASV_final.fa" > "stats_"$Ma
 
 
 
-##  Step 2-D: Chimera checking
+##  Step 3-D: Chimera checking
 
 vsearch --uchime3_denovo "reads_"$Marker"_ASV.fa" --uchimeout "reads_"$Marker"_ASV.uchime" --nonchimeras "reads_"$Marker"_ASV_nonchimeras.fa"
 
 
 
 
-##  Step 2-E: Assign taxonomy to OTUs using known reference sequences with blast
+##  Step 3-E: Assign taxonomy to OTUs using known reference sequences with blast
 
 
 # Number of threads can be set to 1
@@ -406,7 +406,7 @@ vsearch --usearch_global "reads_"$Marker"_ASV_nonchimeras.fa" \
 
 
 
-##  Step 2-F:  Make the OTU table
+##  Step 3-F:  Make the OTU table
 
 STATS="stats_"$Marker"_ASV.txt"
 OTUS="reads_"$Marker"_mapped_ASV.txt"

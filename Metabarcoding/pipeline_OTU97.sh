@@ -377,14 +377,14 @@ python3 $path_scripts/make_stats.py "reads_"$Marker"_OTU97_final.fa" > "stats_"$
 
 
 
-##  Step 2-D: Chimera checking
+##  Step 3-D: Chimera checking
 
 vsearch --uchime_denovo "reads_"$Marker"_OTU97_final.fa" --uchimeout "reads_"$Marker"_OTU97.uchime" --nonchimeras "reads_"$Marker"_OTU97_nonchimeras.fa"
 
 
 
 
-##  Step 2-E: Assign taxonomy to OTUs using known reference sequences with blast
+##  Step 3-E: Assign taxonomy to OTUs using known reference sequences with blast
 
 
 # Number of threads can be set to 1
@@ -407,7 +407,7 @@ vsearch --usearch_global "reads_"$Marker"_OTU97_nonchimeras.fa" \
 
 
 
-##  Step 2-F:  Make the OTU table
+##  Step 3-F:  Make the OTU table
 
 STATS="stats_"$Marker"_OTU97.txt"
 OTUS="reads_"$Marker"_mapped_OTU97.txt"
