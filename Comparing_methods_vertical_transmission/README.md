@@ -1,4 +1,4 @@
-# Scripts for Running methods to detect vertical transmission 
+# Scripts for running methods to detect vertical transmission 
 
 **Contact:** Benoît Perez-Lamarque, benoit.perez.lamarque@gmail.com
 
