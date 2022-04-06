@@ -11,7 +11,7 @@ These scripts are derived from [Frédéric Mahé's metabarcoding pipeline](https
 
 
 
-## Scripts for Running methods to detect vertical transmission 
+## Scripts for running methods to detect vertical transmission 
 
 The folder  `Comparing_methods_vertical_transmission` contains the amended functions to test for vertical transmission in host-associated microbiota. The file `functions_parafit_paco.R` contains the functions to run ParaFit and PACo and a corresponding tutorial can be found in the script `example_parafit_paco.R`. A tutorial for running HOME is available at https://github.com/BPerezLamarque/HOME/. And a tutorial for running ALE is available at https://github.com/ssolo/ALE/.
 
