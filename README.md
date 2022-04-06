@@ -10,11 +10,19 @@ These scripts are derived from [Frédéric Mahé's metabarcoding pipeline](https
 **Contact:** Benoît Perez-Lamarque, benoit.perez.lamarque@gmail.com
 
 
+## Scripts for Running methods to detect vertical transmission 
+
+The folder  `Comparing_methods_vertical_transmission` contains the functions to test for vertical transmission in host-associated microbiota. The file `functions_parafit_paco.R` contains the functions to run ParaFit and PACo and a corresponding tutorial can be found in the script `example_parafit_paco.R`. A tutorial for running HOME is available at https://github.com/BPerezLamarque/HOME/. And a tutorial for running ALE is available at https://github.com/ssolo/ALE/.
 
 
 ## Scripts for *Ariamnes* microbiota analyses 
 
 The folder  `Ariamnes_microbiota`  contains the functions to reproduce the microbiota analyses from the manuscript: *A holobiont view of island biogeography: Unravelling patterns driving the nascent diversification of a Hawaiian spider and its microbial associates*, by Ellie E. Armstrong, Benoît Perez-Lamarque, Ke Bi, Cerise Chen, Leontine E. Becking, Jun Ying Lim, Tyler Linderoth, Henrik Krehenwinkel, Rosemary G. Gillespie, 2021, in Molecular Ecology, https://doi.org/10.1111/mec.16301.
+
+
+
+
+
 
 
 **Contact:** Benoît Perez-Lamarque, benoit.perez.lamarque@gmail.com
