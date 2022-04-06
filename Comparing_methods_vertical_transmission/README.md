@@ -7,6 +7,7 @@ This folder  contains the amended ParaFit and PACo functions to test for vertica
 
 Besides ParaFit and PACo, a tutorial for running HOME is available at https://github.com/BPerezLamarque/HOME/. And a tutorial for running ALE is available at https://github.com/ssolo/ALE/.
 
+For more details, see "Comparing different computational approaches for detecting long-term vertical transmission in host-associated microbiota", Perez-Lamarque B & Morlon H, in prep.
 
 
 
