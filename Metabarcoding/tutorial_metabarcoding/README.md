@@ -19,7 +19,7 @@ In this tutorial, we analyze plant-associated root mycobiota from a disturbed co
 **[Step 1: Merge paired-ended reads and check the quality](#step-1:merge-paired-ended-reads-and-check-the-quality)**\
 **[Step 2: OTU clustering at 97%](#step-2:otu-clustering-at-97%)**
 
-<br> <br>
+<br> 
 
 ## Set the working directory
 
@@ -42,7 +42,7 @@ cp /XXXX/*fastq $path_analyses/raw_data/
 
 ```
 
-<br> <br>
+<br> 
 
 # Step 0: Prepare the database for taxonomic assignation
 
@@ -100,7 +100,7 @@ Once the final database is ready, we can delete the original database:
 rm ${INPUT}
 ```
 
-<br> <br>
+<br> 
 
 
 # Step 1: Merge paired-ended reads and check the quality
@@ -131,7 +131,7 @@ ls $path_analyses/raw_data/*.fastq | sed 's/\_1\.fastq$//' | sed 's/\_2\.fastq$/
 
 ```
 
-<br> <br>
+<br> 
 
 ## Step 1-A: Merge the paired-ended reads
 
@@ -164,7 +164,7 @@ done
 
 ```
 
-<br> <br>
+<br> 
 
 ## Step 1-B: Checking the quality with FastQC
 
@@ -189,7 +189,7 @@ done
 
 Check the quality file generated for each sample and make sure that all the samples meet a certain quality. 
 
-<br> <br>
+<br> 
 
 ## Step 1-C: Quality filtering 
 
@@ -239,7 +239,7 @@ rm merged_reads/*fastq
 
 ```
 
-<br> <br>
+<br> 
 
 # Step 2: OTU clustering at 97%
 
@@ -259,7 +259,7 @@ database_taxonomy="SILVA_138.1_SSURef_NR99_tax_silva_AMADf_AMDGr.fasta"
 
 ```
 
-<br> <br>
+<br> 
 
 ## Step 2-A: Dereplication of all the reads from all samples
 
@@ -280,7 +280,7 @@ rm reads_amplicon.fa
 
 ```
 
-<br> <br>
+<br> 
 
 ## Step 2-B: Sort by size
 
@@ -295,7 +295,7 @@ vsearch -sortbysize reads_amplicon_derep.fa -output reads_amplicon_sorted.fa -mi
 
 ```
 
-<br> <br>
+<br> 
 
 ##  Step 2-C: OTU clustering at 97%
 
@@ -309,7 +309,7 @@ vsearch -cluster_size  reads_amplicon_sorted.fa --id 0.97 --centroids reads_OTU9
 
 Note, that 0.97 can be changed to 0.95, 0.99... to generate 99% or 95% OTUs instead. 
 
-<br> <br>
+<br> 
 
 The step of OTU clustering generates several outputs that will be necessary for building the OTU table (i.e. which OTUs are present in each sample). These files need proper formatting:
 
@@ -337,7 +337,7 @@ python3 $path_scripts/make_stats.py reads_OTU97_final.fa > stats_file_OTU97.txt
 
 ```
 
-<br> <br>
+<br> 
 
 
 ##  Step 2-D: Chimera checking
@@ -346,13 +346,15 @@ Next, we perform chimera filtering: we identify *de novo* the presence of chimer
 
 ```bash
 
-vsearch --uchime_denovo reads_OTU97_final.fa --uchimeout reads_OTU97.uchime --nonchimeras reads_OTU97_nonchimeras.fa
+vsearch --uchime_denovo reads_OTU97_final.fa \
+    --uchimeout reads_OTU97.uchime \
+    --nonchimeras reads_OTU97_nonchimeras.fa
 
 ```
 
 Non-chimeric OTUs are stored in the fasta file "reads_OTU97_nonchimeras.fa", while "reads_OTU97.uchime" keeps a summary of the chimera checking for each OTU. 
 
-<br> <br>
+<br> 
 
 
 ##  Step 2-E: Taxonomic assignation 
@@ -362,24 +364,24 @@ We now assign a taxonomy to each OTU by blasting the OTUs against the SILVA data
 ```bash
 
 vsearch --usearch_global reads_OTU97_nonchimeras.fa \
---threads $nb_cores \
---dbmask none \
---qmask none \
---rowlen 0 \
---notrunclabels \
---userfields query+id1+target \
---maxaccepts 0 \
---maxrejects 32 \
---top_hits_only \
---output_no_hits \
---db "../database/"$database_taxonomy \
---id 0.5 \
---iddef 4 \
---userout taxonomy_OTU97.txt
+    --threads $nb_cores \
+    --dbmask none \
+    --qmask none \
+    --rowlen 0 \
+    --notrunclabels \
+    --userfields query+id1+target \
+    --maxaccepts 0 \
+    --maxrejects 32 \
+    --top_hits_only \
+    --output_no_hits \
+    --db "../database/"$database_taxonomy \
+    --id 0.5 \
+    --iddef 4 \
+    --userout taxonomy_OTU97.txt
 
 ```
 
-<br> <br>
+<br> 
 
 
 ##  Step 2-F:  Generate the OTU table
@@ -409,7 +411,7 @@ python3 \
     
 ```
 
-<br> <br>
+<br> 
 
 The generated OTU will likely be too large to be easily opened in R. We can already filter the OTU at this step to discard OTU, which won't be useful for statistical analyses. For instance, we discard the chimeric OTUs, the OTUs less than 200 bp, and the OTUs with an abundance lower than 10:
 
@@ -423,6 +425,6 @@ cat "${OTU_TABLE}" | awk '$5 == "N" && $4 >= 200 && $2 >= 10' >> "${FILTERED}"
 
 The final OTU table is then available in "OTU_table_OTU97_filtered.txt" and can be opened in R. 
 
-<br> <br>
+<br> 
 
 
