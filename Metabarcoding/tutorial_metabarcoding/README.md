@@ -15,9 +15,9 @@ In this tutorial, we analyze plant-associated root mycobiota from a disturbed co
 
 
 # Contents:
-**[Step 0: Prepare the database for taxonomic assignation](#step-0:prepare-the-database-for-taxonomic-assignation)**\
-**[Step 1: Merge paired-ended reads and check the quality](#step-1:merge-paired-ended-reads-and-check-the-quality)**\
-**[Step 2: OTU clustering at 97%](#step-2:otu-clustering-at-97%)**
+**[Step 0: Prepare the database for taxonomic assignation](#step-0:-prepare-the-database-for-taxonomic-assignation)**\
+**[Step 1: Merge paired-ended reads and check the quality](#step-1:-merge-paired-ended-reads-and-check-the-quality)**\
+**[Step 2: OTU clustering at 97%](#step-2:-otu-clustering-at-97%)**
 
 <br> 
 
@@ -25,7 +25,7 @@ In this tutorial, we analyze plant-associated root mycobiota from a disturbed co
 
 All analyses will be performed in a given directory. Inside this directory, create a folder "raw_data/", which contains all the fastq files.  
 
-Because this pipeline will generate large files, it is recommended to work in the /data/ folder, e.g. in /data/mag/bio21/<login>/EGME/praticals_mycorrhiza/
+Because this pipeline will generate large files, it is recommended to work in the /data/ folder, e.g. in /data/mag/bio21/login/EGME/praticals_mycorrhiza/
 Warnings: This directory has to be empty before starting the analyses
 
 ```bash
