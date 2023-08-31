@@ -16,8 +16,8 @@ In this tutorial, we analyze plant-associated root mycobiota from a disturbed co
 
 # Contents:
 **[Step 0: Prepare the database for taxonomic assignation](#step-0-prepare-the-database-for-taxonomic-assignation)**\
-**[Step 1: Merge paired-ended reads and check the quality](#step-1:-merge-paired-ended-reads-and-check-the-quality)**\
-**[Step 2: OTU clustering at 97%](#step-2:-otu-clustering-at-97%)**
+**[Step 1: Merge paired-ended reads and check the quality](#step-1-merge-paired-ended-reads-and-check-the-quality)**\
+**[Step 2: OTU clustering at 97%](#step-2-otu-clustering-at-97%)**
 
 <br> 
 
