@@ -5,9 +5,13 @@
 
 This tutorial provides instructions on how to perform OTU clustering using VSEARCH to generate an OTU table from an amplicon metabarcoding dataset. It is assumed that the dataset is already demultiplexed, with one R1 fastq file and R2 fastq file per sample. 
 
-The pipeline requires the installation of Python3, VSEARCH (v2), cutadapt, and FastQC. It also requires external scripts (OTU_contingency_table.py, map2qiime.py, and make_stats.py), which are available in https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/. The complete documentation of VSEARCH is available here: https://github.com/torognes/vsearch/releases/download/v2.23.0/vsearch_manual.pdf
+The pipeline requires the installation of Python3, VSEARCH (v2), cutadapt, and FastQC. It also requires external scripts (OTU_contingency_table.py, map2qiime.py, and make_stats.py), which are available in [here](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/). The complete documentation of VSEARCH is available  [here](https://github.com/torognes/vsearch/releases/download/v2.23.0/vsearch_manual.pdf).
 
-In this tutorial, we analyze plant-associated root mycobiota from a disturbed community in La Réunion. The dataset includes root samples from both native and invasive plant species. Root-associated fungal communities have been characterized using metabarcoding of the 18S rRNA region (with the primer pair AMADf-AMDGr). The original data are available in Perez-Lamarque et al. (2022; https://doi.org/10.1186/s40793-022-00434-0). 
+
+
+
+
+In this tutorial, we analyze plant-associated root mycobiota from a disturbed community in La Réunion. The dataset includes root samples from both native and invasive plant species. Root-associated fungal communities have been characterized using metabarcoding of the 18S rRNA region (with the primer pair AMADf-AMDGr). The original data are available in [Perez-Lamarque et al. (2022)](https://doi.org/10.1186/s40793-022-00434-0). 
 
 
 **Contact:** Benoît Perez-Lamarque, benoit.perez.lamarque@gmail.com
@@ -244,7 +248,7 @@ rm merged_reads/*fastq
 # Step 2: OTU clustering at 97%
 
 
-All clustering analyses will also be performed in the folder "process". More details on this script are available here: https://github.com/frederic-mahe/swarm/wiki/Fred's-metabarcoding-pipeline
+All clustering analyses will also be performed in the folder "process". More details on this script are available [here](https://github.com/frederic-mahe/swarm/wiki/Fred's-metabarcoding-pipeline).
 
 ```bash
 cd $path_analyses/process/
