@@ -3,7 +3,10 @@
 ====
 
 
-This tutorial provides instructions on how to perform OTU clustering using VSEARCH to generate an OTU table from an amplicon metabarcoding dataset. It is assumed that the dataset is already demultiplexed, with one R1 fastq file and R2 fastq file per sample. 
+This tutorial provides instructions on how to perform OTU clustering using VSEARCH to generate an OTU table from an amplicon metabarcoding dataset. It is part of the practicals of the Master course [Environmental genomics for microbial ecology](https://www.edu.bio.ens.psl.eu/spip.php?article271) (ENS, Université PSL).
+
+
+It is assumed that the dataset is already demultiplexed, with one R1 fastq file and R2 fastq file per sample. 
 
 The pipeline requires the installation of Python3, VSEARCH (v2), cutadapt, and FastQC. It also requires external scripts (OTU_contingency_table.py, map2qiime.py, and make_stats.py), which are available in [here](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/). The complete documentation of VSEARCH is available  [here](https://github.com/torognes/vsearch/releases/download/v2.23.0/vsearch_manual.pdf).
 
