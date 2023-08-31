@@ -1,7 +1,6 @@
 
-** Tutorial to analyze metabarcoding datasets using OTU clustering **
-
-
+**Tutorial to analyze metabarcoding datasets using OTU clustering:**
+====
 
 
 This tutorial provides instructions on how to perform OTU clustering using VSEARCH to generate an OTU table from an amplicon metabarcoding dataset. It is assumed that the dataset is already demultiplexed, with one R1 fastq file and R2 fastq file per sample. 
@@ -16,18 +15,22 @@ In this tutorial, we analyze plant-associated root mycobiota from a disturbed co
 
 
 # Contents:
-**[Step 0: ](#measuring-phylogenetic-signal)**\
-**[Optional steps](#optional-steps)**\
-**[Other possibilities](#other-possibilities)**
+**[Step 0: Prepare the database for taxonomic assignation](#step-0:prepare-the-database-for-taxonomic-assignation)**\
+**[Step 1: Merge paired-ended reads and check the quality](#step-1:merge-paired-ended-reads-and-check-the-quality)**\
+**[Step 2: OTU clustering at 97%](#step-2:otu-clustering-at-97%)**
 
+<br> <br>
+
+## Set the working directory
 
 All analyses will be performed in a given directory. Inside this directory, create a folder "raw_data/", which contains all the fastq files.  
 
+Because this pipeline will generate large files, it is recommended to work in the /data/ folder, e.g. in /data/mag/bio21/<login>/EGME/praticals_mycorrhiza/
+Warnings: This directory has to be empty before starting the analyses
+
 ```bash
 
-
-path_analyses="YOUR_WORKING_DIRECTORY" # path where all analyses will be done. Because this pipeline will generate large files, it is recommended to work in the /data/ folder, e.g. in /data/mag/bio21/<login>/EGME/praticals_mycorrhiza/
-# Warnings: This directory has to be empty before starting the analyses
+path_analyses="WORKING_DIRECTORY" # path where all analyses will be done. 
 
 cd $path_analyses
 
@@ -39,11 +42,14 @@ cp /XXXX/*fastq $path_analyses/raw_data/
 
 ```
 
+<br> <br>
 
 # Step 0: Prepare the database for taxonomic assignation
 
 
-The goal of this step is to prepare the database that will be used for the taxonomic assignation of the OTUs. Here, the goal is the generate a database from the SILVA database,  which mostly contains sequences of the small subunit of ribosomal RNA (16S for prokaryotes and 18S for eukaryotes). We will focus here on eukaryotes using the two primers AMADf-AMDGr designed for root-associated fungi. After downloading the complete SILVA database, we will use cutadapt to extract from the database the fungal reads that could have been amplified using the primer pair AMADf-AMDGr. 
+The goal of this step is to prepare the database that will be used for the taxonomic assignation of the OTUs. Here, the goal is the generate a database from the SILVA database,  which mostly contains sequences of the small subunit of ribosomal RNA (16S for prokaryotes and 18S for eukaryotes). We will focus here on eukaryotes using the two primers AMADf-AMDGr designed for root-associated fungi. 
+
+After downloading the complete SILVA database, we use cutadapt to extract from the database the fungal reads that could have been amplified using the primer pair AMADf-AMDGr. Cutadapt gets the sequences matching both primers, trims forward & reverse primers to only keep the central amplicon region that could be present in our dataset, and store these reference amplicon sequences into a correct format. 
 
 
 ```bash
@@ -79,23 +85,25 @@ MIN_F=$(( ${#PRIMER_F} / 2 )) # should match at least 50% of the forward primer
 MIN_R=$(( ${#PRIMER_R} / 2 )) # should match at least 50% of the reverse primer
 CUTADAPT="cutadapt --discard-untrimmed --minimum-length ${MIN_LENGTH}"
 
-# Run cutadapt: get the sequences matching both primers, trim forward & reverse primers to only keep the potential amplicon region, and store in a correct format
+# Run cutadapt: 
 zcat < "${INPUT}" | sed '/^>/ ! s/U/T/g' | \
-${CUTADAPT} -g "${PRIMER_F}" -O "${MIN_F}" - 2> "${LOG}" | \
-${CUTADAPT} -a "${ANTI_PRIMER_R}" -O "${MIN_R}" - 2>> "${LOG}" | \
-sed '/^>/ s/;/|/g ; /^>/ s/ /_/g ; /^>/ s/_/ /1' > "${OUTPUT}"
+    ${CUTADAPT} -g "${PRIMER_F}" -O "${MIN_F}" - 2> "${LOG}" | \
+    ${CUTADAPT} -a "${ANTI_PRIMER_R}" -O "${MIN_R}" - 2>> "${LOG}" | \
+    sed '/^>/ s/;/|/g ; /^>/ s/ /_/g ; /^>/ s/_/ /1' > "${OUTPUT}"
+    
 ```
 
 
 
-Once the final database is ready, you can delete the original database:
+Once the final database is ready, we can delete the original database:
 ```bash
 rm ${INPUT}
 ```
 
+<br> <br>
 
 
-# Step 1: Merge R1 & R2 paired-ended reads and check the quality
+# Step 1: Merge paired-ended reads and check the quality
 
 
 All analyses will now be performed in the folder "process".
@@ -117,18 +125,18 @@ First, we will need to get the list of all the samples. This can be obtained usi
 
 # List all samples ("fastq" format), remove the extension, and store the names
 
-ls $path_analyses/raw_data/*.fastq | sed 's/\_1\.fastq$//' | sed 's/\_2\.fastq$//' | sed 's/\.fastq$//' | sort -u > list_sample.txt
+ls $path_analyses/raw_data/*.fastq | sed 's/\_1\.fastq$//' | sed 's/\_2\.fastq$//' | sed 's/\.fastq$//' | \
+    sort -u > list_sample.txt
 
 
 ```
 
+<br> <br>
 
 ## Step 1-A: Merge the paired-ended reads
 
 
-
-
-We use a for loop to iterate over each line in list_sample.txt (i.e. one sample) and for each sample, we merge the paired-ended reads:
+We use a for loop to iterate over each line in list_sample.txt (i.e. one sample) and for each sample, we merge the R1 & R2 paired-ended reads:
 
 
 ```bash
@@ -156,6 +164,8 @@ done
 
 ```
 
+<br> <br>
+
 ## Step 1-B: Checking the quality with FastQC
 
 Next, we use FastQC to check a for loop to iterate over each line in list_sample.txt (i.e. one sample), and for each sample, we merge the paired-ended reads:
@@ -179,7 +189,7 @@ done
 
 Check the quality file generated for each sample and make sure that all the samples meet a certain quality. 
 
-
+<br> <br>
 
 ## Step 1-C: Quality filtering 
 
@@ -216,7 +226,6 @@ for sample in $(cat list_sample.txt); do
     
 done
 
-
 ```
 
 Note that the parameter "fastq_maxee" can be adjusted according to the average quality of the run (given by FastQC). 
@@ -225,10 +234,12 @@ Note that the parameter "fastq_maxee" can be adjusted according to the average q
 Once all these steps have finished and the results are fine, we can remove the files that are no longer useful:
 
 ```bash
+
 rm merged_reads/*fastq
+
 ```
 
-
+<br> <br>
 
 # Step 2: OTU clustering at 97%
 
@@ -248,6 +259,7 @@ database_taxonomy="SILVA_138.1_SSURef_NR99_tax_silva_AMADf_AMDGr.fasta"
 
 ```
 
+<br> <br>
 
 ## Step 2-A: Dereplication of all the reads from all samples
 
@@ -268,6 +280,8 @@ rm reads_amplicon.fa
 
 ```
 
+<br> <br>
+
 ## Step 2-B: Sort by size
 
 
@@ -276,39 +290,54 @@ We sort all the reads by size (from the most abundant to the least abundant).
 Here, we discard all the reads present in a single copy. Warning: We exclude singletons for increasing the speed of the clustering, but this step is not always recommended (use "minsize 1" instead")
 
 ```bash
+
 vsearch -sortbysize reads_amplicon_derep.fa -output reads_amplicon_sorted.fa -minsize 2
+
 ```
 
+<br> <br>
 
 ##  Step 2-C: OTU clustering at 97%
 
 Now we perform the OTU clustering at 97%. For each OTU, we keep the centroid read as the representative sequence. 
 
 ```bash
+
 vsearch -cluster_size  reads_amplicon_sorted.fa --id 0.97 --centroids reads_OTU97.fa --uc clusters_OTU97.uc --sizein --sizeout
+
 ```
 
 Note, that 0.97 can be changed to 0.95, 0.99... to generate 99% or 95% OTUs instead. 
 
+<br> <br>
 
 The step of OTU clustering generates several outputs that will be necessary for building the OTU table (i.e. which OTUs are present in each sample). These files need proper formatting:
 
 1) The fasta file "reads_OTU97.fa" contains the representative sequences of each OTU. It can be reformatted with one line per OTU sequence using the following command:
+
 ```bash
+
 vsearch --fasta_width 0 --sortbysize reads_OTU97.fa --output reads_OTU97_final.fa
+
 ```
 
 2) The step of OTU clustering also keeps track of the reads mapping to each OTU (file "clusters_OTU97.uc"). This file can be reformatted using the python script map2qiime.py:
 
 ```bash
+
 python3 $path_scripts/map2qiime.py clusters_OTU97.uc > reads_mapped_OTU97.txt
+
 ```
 
 3) From the fasta file "reads_OTU97_final.fa" we will also extract the abundance of each OTU (needed in the OTU table), with the following command:
 
 ```bash
+
 python3 $path_scripts/make_stats.py reads_OTU97_final.fa > stats_file_OTU97.txt
+
 ```
+
+<br> <br>
 
 
 ##  Step 2-D: Chimera checking
@@ -316,11 +345,14 @@ python3 $path_scripts/make_stats.py reads_OTU97_final.fa > stats_file_OTU97.txt
 Next, we perform chimera filtering: we identify *de novo* the presence of chimeras among the OTUs and remove them. 
 
 ```bash
+
 vsearch --uchime_denovo reads_OTU97_final.fa --uchimeout reads_OTU97.uchime --nonchimeras reads_OTU97_nonchimeras.fa
+
 ```
 
 Non-chimeric OTUs are stored in the fasta file "reads_OTU97_nonchimeras.fa", while "reads_OTU97.uchime" keeps a summary of the chimera checking for each OTU. 
 
+<br> <br>
 
 
 ##  Step 2-E: Taxonomic assignation 
@@ -328,6 +360,7 @@ Non-chimeric OTUs are stored in the fasta file "reads_OTU97_nonchimeras.fa", whi
 We now assign a taxonomy to each OTU by blasting the OTUs against the SILVA database. 
 
 ```bash
+
 vsearch --usearch_global reads_OTU97_nonchimeras.fa \
 --threads $nb_cores \
 --dbmask none \
@@ -346,6 +379,7 @@ vsearch --usearch_global reads_OTU97_nonchimeras.fa \
 
 ```
 
+<br> <br>
 
 
 ##  Step 2-F:  Generate the OTU table
@@ -353,6 +387,7 @@ vsearch --usearch_global reads_OTU97_nonchimeras.fa \
 Finally, we can build the OTU table. 
 
 ```bash
+
 STATS="stats_file_OTU97.txt"
 OTUS="reads_mapped_OTU97.txt"
 REPRESENTATIVES="reads_OTU97_final.fa"
@@ -374,6 +409,8 @@ python3 \
     
 ```
 
+<br> <br>
+
 The generated OTU will likely be too large to be easily opened in R. We can already filter the OTU at this step to discard OTU, which won't be useful for statistical analyses. For instance, we discard the chimeric OTUs, the OTUs less than 200 bp, and the OTUs with an abundance lower than 10:
 
 ```bash
@@ -386,6 +423,6 @@ cat "${OTU_TABLE}" | awk '$5 == "N" && $4 >= 200 && $2 >= 10' >> "${FILTERED}"
 
 The final OTU table is then available in "OTU_table_OTU97_filtered.txt" and can be opened in R. 
 
-
+<br> <br>
 
 
