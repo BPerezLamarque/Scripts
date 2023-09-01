@@ -306,7 +306,7 @@ rm reads_amplicon.fasta
 
 We sort all the reads by size (from the most abundant to the least abundant). 
 
-Here, we discard all the reads present in a single copy. **Warning:** Here, we exclude singletons for the seek of increasing the speed of the clustering, but this step is not always recommended (use "minsize 1" instead")
+Here, we discard all the reads present in a single copy. **Warning:** Here, we exclude singletons for the seek of increasing the speed of the clustering, but this step is not recommended in general (use "minsize 1" instead")
 
 ```bash
 
