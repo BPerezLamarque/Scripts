@@ -241,7 +241,7 @@ done
 
 ```
 
-Note that the parameter "fastq_maxee" can be adjusted according to the average quality of the run (given by FastQC). 
+Note that the parameter "fastq_maxee" can be adjusted according to the average quality of the run (given by FastQC). Always keep track of the % of reads that are discarded at the step of quality filtering. 
 
  
 Once all these steps have finished and the results are fine, we can remove the files that are no longer useful:
@@ -452,4 +452,16 @@ The final OTU table is then available in "OTU_table_OTU97_filtered.txt" and can 
 
 <br> 
 
+# Running the script in the background
 
+Some of the steps (e.g. the taxonomic assignations) may be long. To run the step in the background overnight, for instance, you can use a screen session. 
+
+To open a new srceen, type `screen -S session_name`
+
+To exit a screen session and keep it running in the background, press "Ctrl-A" and then "d" (for "detach").
+
+You can open the screen session anytime by typing `screen -r session_name`.
+
+To list the ongoing screen sessions you can type `screen -ls`. 
+
+Finally, to kill a screen session, use the `exit` command. 
