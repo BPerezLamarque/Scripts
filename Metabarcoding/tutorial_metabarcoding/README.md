@@ -217,8 +217,8 @@ for sample in $(cat list_sample.txt); do
 
     echo $sample
     
-    INPUT="merged_reads/"$sample".fastq"
-    OUTPUT="merged_reads/"$sample".fasta"
+    INPUT="merged_reads/"$sample".fastq"   # fastq
+    OUTPUT="merged_reads/"$sample".fasta"  # fasta 
     
     vsearch \
     --fastq_filter $INPUT \
@@ -259,6 +259,8 @@ rm merged_reads/*fastq
 
 All clustering analyses will also be performed in the folder "process". More details on this script are available [here](https://github.com/frederic-mahe/swarm/wiki/Fred's-metabarcoding-pipeline).
 
+It is also required to indicate the path toward external scripts needed for the pipeline ([OTU_contingency_table.py](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/OTU_contingency_table.py), [map2qiime.py](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/map2qiime.py), and [make_stats.py](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/make_stats.py)).
+
 ```bash
 cd $path_analyses/process/
 
@@ -269,6 +271,9 @@ nb_cores=2
 # indicate the name of the database for taxonomic assignation (generated in Step 0):
 
 database_taxonomy="SILVA_138.1_SSURef_NR99_tax_silva_AMADf_AMDGr.fasta"
+
+# indicate the path toward the Python3 scripts used for generating the OTU tables, e.g.:
+path_scripts=$path_analyses/scripts/
 
 ```
 
@@ -300,11 +305,13 @@ rm reads_amplicon.fasta
 
 We sort all the reads by size (from the most abundant to the least abundant). 
 
-Here, we discard all the reads present in a single copy. Warning: We exclude singletons for increasing the speed of the clustering, but this step is not always recommended (use "minsize 1" instead")
+Here, we discard all the reads present in a single copy. **Warning:** Here, we exclude singletons for the seek of increasing the speed of the clustering, but this step is not always recommended (use "minsize 1" instead")
 
 ```bash
 
 vsearch -sortbysize reads_amplicon_derep.fasta -output reads_amplicon_sorted.fasta -minsize 2
+
+rm reads_amplicon_derep.fasta
 
 ```
 
@@ -316,7 +323,11 @@ Now we perform the OTU clustering at 97%. For each OTU, we keep the centroid rea
 
 ```bash
 
-vsearch -cluster_size  reads_amplicon_sorted.fasta --id 0.97 --centroids reads_OTU97.fasta --uc clusters_OTU97.uc --sizein --sizeout
+vsearch -cluster_size  reads_amplicon_sorted.fasta \
+    --threads $nb_cores \
+    --id 0.97 --centroids reads_OTU97.fasta \
+    --uc clusters_OTU97.uc \
+    --sizein --sizeout
 
 ```
 
