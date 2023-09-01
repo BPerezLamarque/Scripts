@@ -259,12 +259,12 @@ rm merged_reads/*fastq
 
 All clustering analyses will also be performed in the folder "process". More details on this script are available [here](https://github.com/frederic-mahe/swarm/wiki/Fred's-metabarcoding-pipeline).
 
-It is also required to indicate the path toward external scripts needed for the pipeline ([OTU_contingency_table.py](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/OTU_contingency_table.py), [map2qiime.py](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/map2qiime.py), and [make_stats.py](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/make_stats.py)).
+It is required to indicate the path toward external scripts needed for the pipeline ([OTU_contingency_table.py](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/OTU_contingency_table.py), [map2qiime.py](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/map2qiime.py), and [make_stats.py](https://github.com/BPerezLamarque/Scripts/blob/master/Metabarcoding/make_stats.py)).
 
 ```bash
 cd $path_analyses/process/
 
-# number of cores for the analyses
+# indicate the number of cores for the analyses
 
 nb_cores=2
 
@@ -273,6 +273,7 @@ nb_cores=2
 database_taxonomy="SILVA_138.1_SSURef_NR99_tax_silva_AMADf_AMDGr.fasta"
 
 # indicate the path toward the Python3 scripts used for generating the OTU tables, e.g.:
+
 path_scripts=$path_analyses/scripts/
 
 ```
