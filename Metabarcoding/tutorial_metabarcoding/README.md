@@ -204,6 +204,46 @@ Check the quality file generated for each sample and make sure that all the samp
 
 <br> 
 
+In some databases, the demultiplexing step may be incomplete and the primer sequences may still be present in the reads (this can be easily detected in the FastQC output). In this case, the following step needs to be run:
+
+```bash
+
+# Indicate the sequences of the primers used for metabarcoding
+PRIMER_F="GGGAGGTAGTGACAATAAATAAC" # Forward primer (AMADf)
+PRIMER_R="CCCAACTATCCCTATTAATCAT" #Reverse primer (AMDGr)
+
+# Reverse complement the reverse primer
+ANTI_PRIMER_R=$( echo "${PRIMER_R}" | tr ACGTacgtYyMmRrKkBbVvDdHh TGCAtgcaRrKkYyMmVvBbHhDd | rev )
+
+# Paramerers of cutadapt
+MIN_LENGTH=20 # minimum sequence length
+MIN_F=$(( ${#PRIMER_F} * 4 / 5 )) # should match at least 80% of the forward primer
+MIN_R=$(( ${#PRIMER_R} * 4 / 5 )) # should match at least 80% of the reverse primer
+LOG="merged_reads/output_cutadapt.txt"
+
+for sample in $(cat list_sample.txt); do
+
+    echo $sample
+    
+    INPUT="merged_reads/"$sample".fastq"
+    OUTPUT="merged_reads/"$sample"_temp.fastq"
+    
+    # Run cutadapt: 
+    cat < "${INPUT}" | sed '/^>/ ! s/U/T/g' | \
+        cutadapt -g "${PRIMER_F}" -O "${MIN_F}" - 2> "${LOG}" | \
+        cutadapt -a "${ANTI_PRIMER_R}" -O "${MIN_R}" - 2>> "${LOG}" > "${OUTPUT}"
+    
+    cat $OUTPUT > $INPUT
+    rm $OUTPUT
+    
+done
+
+
+
+```
+
+<br> 
+
 ## Step 1-C: Quality filtering 
 
 
