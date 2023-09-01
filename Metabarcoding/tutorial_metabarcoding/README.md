@@ -172,7 +172,7 @@ NB: Merging pair reads has already been done in the dataset of the practicals, m
 
 ```bash
 
-mv ../raw_data/*.fastq merged_reads/
+cp ../raw_data/*.fastq merged_reads/
 
 ```
 
@@ -224,18 +224,18 @@ for sample in $(cat list_sample.txt); do
     --fastq_filter $INPUT \
     --fastq_maxns 0 \
     --fastq_maxee 0.5 \
-    --fastaout "temp_"$sample".fas"
+    --fastaout "temp_"$sample".fasta"
     
     # Dereplicate at the sample level
     vsearch --quiet \
-        --derep_fulllength "temp_"$sample".fas" \
+        --derep_fulllength "temp_"$sample".fasta" \
         --sizein \
         --sizeout \
         --fasta_width 0 \
         --relabel_sha1 \
         --output "${OUTPUT}"
         
-    rm "temp_"$sample".fas" # remove the temporary file 
+    rm "temp_"$sample".fasta" # remove the temporary file 
     
 done
 
@@ -264,7 +264,7 @@ cd $path_analyses/process/
 
 # number of cores for the analyses
 
-nb_cores=4
+nb_cores=2
 
 # indicate the name of the database for taxonomic assignation (generated in Step 0):
 
@@ -279,17 +279,17 @@ database_taxonomy="SILVA_138.1_SSURef_NR99_tax_silva_AMADf_AMDGr.fasta"
 
 ```bash
 
-cat $path_analyses/process/merged_reads/*.fas > reads_amplicon.fa
+cat $path_analyses/process/merged_reads/*.fasta > reads_amplicon.fasta
 
 vsearch \
-    --derep_fulllength reads_amplicon.fa \
+    --derep_fulllength reads_amplicon.fasta \
     --sizein \
     --sizeout \
     --relabel_sha1 \
     --fasta_width 0 \
-    --output reads_amplicon_derep.fa
+    --output reads_amplicon_derep.fasta
 
-rm reads_amplicon.fa
+rm reads_amplicon.fasta
 
 ```
 
@@ -304,7 +304,7 @@ Here, we discard all the reads present in a single copy. Warning: We exclude sin
 
 ```bash
 
-vsearch -sortbysize reads_amplicon_derep.fa -output reads_amplicon_sorted.fa -minsize 2
+vsearch -sortbysize reads_amplicon_derep.fasta -output reads_amplicon_sorted.fasta -minsize 2
 
 ```
 
@@ -316,7 +316,7 @@ Now we perform the OTU clustering at 97%. For each OTU, we keep the centroid rea
 
 ```bash
 
-vsearch -cluster_size  reads_amplicon_sorted.fa --id 0.97 --centroids reads_OTU97.fa --uc clusters_OTU97.uc --sizein --sizeout
+vsearch -cluster_size  reads_amplicon_sorted.fasta --id 0.97 --centroids reads_OTU97.fasta --uc clusters_OTU97.uc --sizein --sizeout
 
 ```
 
@@ -326,11 +326,11 @@ Note, that 0.97 can be changed to 0.95, 0.99... to generate 99% or 95% OTUs inst
 
 The step of OTU clustering generates several outputs that will be necessary for building the OTU table (i.e. which OTUs are present in each sample). These files need proper formatting:
 
-1) The fasta file "reads_OTU97.fa" contains the representative sequences of each OTU. It can be reformatted with one line per OTU sequence using the following command:
+1) The fasta file "reads_OTU97.fasta" contains the representative sequences of each OTU. It can be reformatted with one line per OTU sequence using the following command:
 
 ```bash
 
-vsearch --fasta_width 0 --sortbysize reads_OTU97.fa --output reads_OTU97_final.fa
+vsearch --fasta_width 0 --sortbysize reads_OTU97.fasta --output reads_OTU97_final.fasta
 
 ```
 
@@ -342,11 +342,11 @@ python3 $path_scripts/map2qiime.py clusters_OTU97.uc > reads_mapped_OTU97.txt
 
 ```
 
-3) From the fasta file "reads_OTU97_final.fa" we will also extract the abundance of each OTU (needed in the OTU table), with the following command:
+3) From the fasta file "reads_OTU97_final.fasta" we will also extract the abundance of each OTU (needed in the OTU table), with the following command:
 
 ```bash
 
-python3 $path_scripts/make_stats.py reads_OTU97_final.fa > stats_file_OTU97.txt
+python3 $path_scripts/make_stats.py reads_OTU97_final.fasta > stats_file_OTU97.txt
 
 ```
 
@@ -359,13 +359,13 @@ Next, we perform chimera filtering: we identify *de novo* the presence of chimer
 
 ```bash
 
-vsearch --uchime_denovo reads_OTU97_final.fa \
+vsearch --uchime_denovo reads_OTU97_final.fasta \
     --uchimeout reads_OTU97.uchime \
-    --nonchimeras reads_OTU97_nonchimeras.fa
+    --nonchimeras reads_OTU97_nonchimeras.fasta
 
 ```
 
-Non-chimeric OTUs are stored in the fasta file "reads_OTU97_nonchimeras.fa", while "reads_OTU97.uchime" keeps a summary of the chimera checking for each OTU. 
+Non-chimeric OTUs are stored in the fasta file "reads_OTU97_nonchimeras.fasta", while "reads_OTU97.uchime" keeps a summary of the chimera checking for each OTU. 
 
 <br> 
 
@@ -376,7 +376,7 @@ We now assign a taxonomy to each OTU by blasting the OTUs against the SILVA data
 
 ```bash
 
-vsearch --usearch_global reads_OTU97_nonchimeras.fa \
+vsearch --usearch_global reads_OTU97_nonchimeras.fasta \
     --threads $nb_cores \
     --dbmask none \
     --qmask none \
@@ -405,7 +405,7 @@ Finally, we can build the OTU table.
 
 STATS="stats_file_OTU97.txt"
 OTUS="reads_mapped_OTU97.txt"
-REPRESENTATIVES="reads_OTU97_final.fa"
+REPRESENTATIVES="reads_OTU97_final.fasta"
 UCHIME="reads_OTU97.uchime"
 ASSIGNMENTS="taxonomy_OTU97.txt"
 OTU_TABLE="OTU_table_OTU97.txt"
@@ -420,7 +420,7 @@ python3 \
     "${OTUS}" \
     "${UCHIME}" \
     "${ASSIGNMENTS}" \
-    $path_analyses/process/merged_reads/*.fas > "${OTU_TABLE}"
+    $path_analyses/process/merged_reads/*.fasta > "${OTU_TABLE}"
     
 ```
 
