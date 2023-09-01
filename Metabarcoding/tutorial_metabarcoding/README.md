@@ -204,7 +204,7 @@ Check the quality file generated for each sample and make sure that all the samp
 
 <br> 
 
-In some databases, the demultiplexing step may be incomplete and the primer sequences may still be present in the reads (this can be easily detected in the FastQC output). In this case, the following step needs to be run:
+**Optional:** In some datasets, the demultiplexing step may be incomplete and the primer sequences may still be present in the reads (this can be easily detected in the FastQC output). In this case, the following step needs to be run:
 
 ```bash
 
