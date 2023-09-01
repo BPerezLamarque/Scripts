@@ -32,6 +32,8 @@ Warnings: This directory has to be empty before starting the analyses
 
 ```bash
 
+bash # the pipeline requires to be in a bash environment
+
 path_analyses="WORKING_DIRECTORY" # path where all analyses will be done. 
 
 cd $path_analyses
@@ -79,7 +81,7 @@ PRIMER_F="GGGAGGTAGTGACAATAAATAAC" # Forward primer (AMADf)
 PRIMER_R="CCCAACTATCCCTATTAATCAT" #Reverse primer (AMDGr)
 
 # Reverse complement the reverse primer
-ANTI_PRIMER_R=RevBarcodeRC=$( echo "${RevBarcode}" | tr ACGTacgtYyMmRrKkBbVvDdHh TGCAtgcaRrKkYyMmVvBbHhDd | rev )
+ANTI_PRIMER_R=$( echo "${PRIMER_R}" | tr ACGTacgtYyMmRrKkBbVvDdHh TGCAtgcaRrKkYyMmVvBbHhDd | rev )
 
 # Paramerers of cutadapt
 MIN_LENGTH=32 # minimum sequence length
@@ -116,7 +118,7 @@ mkdir $path_analyses/process/
 cd $path_analyses/process/
 
 # number of cores for the analyses
-nb_cores=4
+nb_cores=2
 
 ```
 
@@ -127,7 +129,7 @@ First, we will need to get the list of all the samples. This can be obtained usi
 
 # List all samples ("fastq" format), remove the extension, and store the names
 
-ls $path_analyses/raw_data/*.fastq | sed 's/\_1\.fastq$//' | sed 's/\_2\.fastq$//' | sed 's/\.fastq$//' | \
+ls ../raw_data/*.fastq | sed 's/..\/raw\_data\///' | sed 's/\_1\.fastq$//' | sed 's/\_2\.fastq$//' | sed 's/\.fastq$//' | \
     sort -u > list_sample.txt
 
 
@@ -150,9 +152,9 @@ for sample in $(cat list_sample.txt); do
     echo $sample
     
     INPUT_R1="../raw_data/"$sample"_1.fastq"
-    INPUT_R2="../raw_data/$sample"_2.fastq"
+    INPUT_R2="../raw_data/"$sample"_2.fastq"
     
-    OUTPUT="merged_reads/MERGED_R1R2_"$sample".fastq"
+    OUTPUT="merged_reads/"$sample".fastq"
 
     vsearch \
         --threads $nb_cores \
@@ -166,6 +168,15 @@ done
 
 ```
 
+NB: Merging pair reads has already been done in the dataset of the practicals, merged files can directly be moved in the folder:
+
+```bash
+
+mv ../raw_data/*.fastq merged_reads/
+
+```
+
+
 <br> 
 
 ## Step 1-B: Checking the quality with FastQC
@@ -175,13 +186,13 @@ Next, we use FastQC to check a for loop to iterate over each line in list_sample
 
 ```bash
 
-mkdir $path_analyses/process/FastGC/
+mkdir $path_analyses/process/FastQC/
 
 for sample in $(cat list_sample.txt); do
 
     echo $sample
     
-    OUTPUT="merged_reads/MERGED_R1R2_"$sample".fastq"
+    OUTPUT="merged_reads/"$sample".fastq"
 
     fastqc -t $nb_cores ${OUTPUT} -o FastQC/
     
@@ -206,7 +217,7 @@ for sample in $(cat list_sample.txt); do
 
     echo $sample
     
-    INPUT="merged_reads/MERGED_R1R2_"$sample".fastq"
+    INPUT="merged_reads/"$sample".fastq"
     OUTPUT="merged_reads/"$sample".fasta"
     
     vsearch \
