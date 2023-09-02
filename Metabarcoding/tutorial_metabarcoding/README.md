@@ -204,7 +204,7 @@ Check the quality file generated for each sample and make sure that all the samp
 
 <br> 
 
-**Optional:** In some datasets, the demultiplexing step may be incomplete and the primer sequences may still be present in the reads (this can be easily detected in the FastQC output). In this case, the following step needs to be run:
+**Optional step:** In some datasets, the demultiplexing step may be incomplete and the primer sequences may still be present in the reads (this can be easily detected in the FastQC output). In this case, the following step needs to be run:
 
 ```bash
 
@@ -238,7 +238,7 @@ for sample in $(cat list_sample.txt); do
     
 done
 
-
+# NB: this command may need to be adjusted based on the primers to remove (see the cutadapt manual for more details: https://cutadapt.readthedocs.io/en/stable/guide.html)
 
 ```
 
