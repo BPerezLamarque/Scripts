@@ -25,10 +25,11 @@ In this tutorial, we will analyze plant-associated root mycobiota from a disturb
 
 ## Set the working directory
 
-All data for the practicals are available in /genomic/Cours_EGME/data_practicals/. In particular,  this directory contains a folder "raw_data/" witth all the fastq files. 
+All data for the practicals are available in **/genomic/Cours_EGME/data_practicals/**. In particular, this directory contains a folder "raw_data/" with all the fastq files. 
 
 All the analyses will be performed in a given directory. Because this pipeline will generate large files, it is recommended to work in the /data/ folder, e.g. in /data/mag/bio21/login/EGME/praticals_mycorrhiza/
-Warnings: This directory has to be empty before starting the analyses.
+
+**Warnings:** This directory has to be empty before starting the analyses.
 
 ```bash
 
@@ -58,7 +59,7 @@ After downloading the complete SILVA database, we use cutadapt to extract from t
 
 # Create a folder where the database will be stored 
 
-mkdir database/
+mkdir $path_analyses"/database/"
 cd $path_analyses"/database/"
 
 
@@ -108,7 +109,7 @@ rm ${INPUT}
 # Step 1: Merge paired-ended reads and check the quality
 
 
-All analyses will now be performed in the folder "process".
+All analyses will now be performed in the folder "process/".
 
 ```bash
 mkdir $path_analyses/process/
