@@ -27,8 +27,8 @@ In this tutorial, we will analyze plant-associated root mycobiota from a disturb
 
 All data for the practicals are available in /genomic/Cours_EGME/data_practicals/. In particular,  this directory contains a folder "raw_data/" witth all the fastq files. 
 
-All the analyses will be performed in a given directory. Because this pipeline will generate large files, it is recommended to work in the /data/ folder, e.g. in /data/mag/bio21/<login>/EGME/praticals_mycorrhiza/
-Warnings: This directory has to be empty before starting the analyses
+All the analyses will be performed in a given directory. Because this pipeline will generate large files, it is recommended to work in the /data/ folder, e.g. in /data/mag/bio21/login/EGME/praticals_mycorrhiza/
+Warnings: This directory has to be empty before starting the analyses.
 
 ```bash
 
