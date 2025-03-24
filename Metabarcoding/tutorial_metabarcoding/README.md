@@ -180,7 +180,7 @@ cp ../raw_data/*.fastq merged_reads/
 
 ## Step 1-B: Checking the quality with FastQC
 
-Next, we use FastQC to check a for loop to iterate over each line in list_sample.txt (i.e. one sample), and for each sample, we merge the paired-ended reads:
+Next, we use FastQC to check the quality of the data. We use a for loop to iterate over each line in list_sample.txt (i.e. one file per sample):
 
 
 ```bash
@@ -262,7 +262,7 @@ for sample in $(cat list_sample.txt); do
     vsearch \
     --fastq_filter $INPUT \
     --fastq_maxns 0 \
-    --fastq_maxee 0.5 \
+    --fastq_maxee 1 \
     --fastaout "temp_"$sample".fasta"
     
     # Dereplicate at the sample level
