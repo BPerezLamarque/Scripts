@@ -73,7 +73,6 @@ def swarms_parse():
             amplicons = re.split(separator, line)[0::2]
             seed = amplicons[0]
             amplicons = [string for string in amplicons if string != '']
-            #amplicons[0] = amplicons[0].strip("OTU")
             swarms[seed] = [np.unique(amplicons)]
             
     return swarms
@@ -159,7 +158,6 @@ def print_table(representatives, stats, sorted_stats,
     print("OTU", "abundance",
           "amplicon", "length",
           "chimera", "spread",
-          #"sequence",  # sequences makes the OTU table too heavy
           "identity", "taxonomy",
           "\t".join(samples),
           sep="\t", file=sys.stdout)

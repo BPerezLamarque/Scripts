@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # Make stats from OTU fasta file
 
-
 import sys
 
 UCFileName = sys.argv[1]
