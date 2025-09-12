@@ -1,0 +1,232 @@
+﻿SampleID;Date sampling;Site;Replicate;Plant species;Mass_sample_mg;Family;origin
+L001;17/07/2019;Plaine des palmistes;R2;Lycopodiella caroliniana;29,1;Lycopodiaceae;native
+L002;18/07/2019;Dimitile;R2;Habenaria frappieri;36;Orchidaceae;native
+L003;17/07/2019;Plaine des palmistes;R2;Polytrichum commune;48,6;Polytrichaceae;native
+L004;16/07/2019;Grand brule;R2;Tristemma mauritianum;2;Melastomataceae;native
+L005;17/07/2019;Plaine des palmistes;R3;Rhynchospora rugosa;13,3;Cyperaceae;native
+L006;17/07/2019;Plaine des palmistes;R2;Rhynchospora rugosa;31,8;Cyperaceae;native
+L007;16/07/2019;Grand brule;R3;Nephrolepis biserrata;48,1;Nephrolepidaceae;native
+L008;16/07/2019;Grand brule;R1;Cynodon dactylon;17,6;Poaceae;native
+L009;16/07/2019;Grand brule;R3;Nephrolepis abrupta;59,8;Nephrolepidaceae;native
+L010;16/07/2019;Grand brule;R3;Nephrolepis abrupta;38,7;Nephrolepidaceae;native
+L011;17/07/2019;Plaine des palmistes;R1;Lycopodiella cernua;55,2;Lycopodiaceae;native
+L012;18/07/2019;Dimitile;R1;Lycopodium clavatum;39,6;Lycopodiaceae;native
+L013;16/07/2019;Grand brule;R1;Dicranopteris linearis;43,4;Gleicheniaceae;native
+L014;17/07/2019;Plaine des palmistes;R2;Benthamia africana;1;Orchidaceae;native
+L015;16/07/2019;Grand brule;R1;Dicranopteris linearis;44,2;Gleicheniaceae;native
+L016;16/07/2019;Grand brule;R2;Desmodium incanum;37,2;Fabaceae;exotic
+L017;16/07/2019;Grand brule;R3;Psidium cattleianum;65,7;Myrtaceae;invasive
+L018;16/07/2019;Grand brule;R2;Cynodon dactylon;29,4;Poaceae;native
+L019;17/07/2019;Plaine des palmistes;R3;Rhynchospora rugosa;12,2;Cyperaceae;native
+L020;17/07/2019;Plaine des palmistes;R2;Dicranopteris linearis;65,3;Gleicheniaceae;native
+L021;17/07/2019;Plaine des palmistes;R3;Polytrichum commune;46,8;Polytrichaceae;native
+L022;18/07/2019;Dimitile;R1;Dicranopteris linearis;13;Gleicheniaceae;native
+L023;17/07/2019;Plaine des palmistes;R2;Lycopodiella caroliniana;23,5;Lycopodiaceae;native
+L024;17/07/2019;Plaine des palmistes;R1;Polytrichum commune;28,1;Polytrichaceae;native
+L025;17/07/2019;Plaine des palmistes;R3;Polytrichum commune;17,6;Polytrichaceae;native
+L026;18/07/2019;Dimitile;R2;Phylica nitida;36;Rhamnaceae;native
+L027;16/07/2019;Grand brule;R2;Dicranopteris linearis;42,8;Gleicheniaceae;native
+L028;16/07/2019;Grand brule;R3;Miconia crenata;42,4;Melastomataceae;invasive
+L029;18/07/2019;Dimitile;R1;Hyparrhenia rufa;53;Poaceae;native
+L030;17/07/2019;Plaine des palmistes;R3;Ipomea sp.1;32;Convolvulaceae;exotic
+L031;18/07/2019;Dimitile;R2;Erica reunionensis;7,7;Ericaceae;native
+L032;18/07/2019;Dimitile;R2;Habenaria frappieri;20,7;Orchidaceae;native
+L033;16/07/2019;Grand brule;R2;Nephrolepis abrupta;26,5;Nephrolepidaceae;native
+L034;16/07/2019;Grand brule;R2;Cynodon dactylon;39,5;Poaceae;native
+L035;17/07/2019;Plaine des palmistes;R1;Machaerina iridifolia;37,5;Cyperaceae;native
+L036;17/07/2019;Plaine des palmistes;R1;Lycopodiella cernua;78,4;Lycopodiaceae;native
+L037;16/07/2019;Grand brule;R3;Nephrolepis abrupta;54;Nephrolepidaceae;native
+L038;17/07/2019;Plaine des palmistes;R1;Tristemma mauritianum;76,1;Melastomataceae;native
+L039;16/07/2019;Grand brule;R1;Desmodium incanum;28,1;Fabaceae;exotic
+L040;17/07/2019;Plaine des palmistes;R2;Machaerina iridifolia;56;Cyperaceae;native
+L041;17/07/2019;Plaine des palmistes;R3;Erica reunionensis;75,8;Ericaceae;native
+L042;18/07/2019;Dimitile;R1;Hyparrhenia rufa;53,3;Poaceae;native
+L043;16/07/2019;Grand brule;R3;Lycopodiella cernua;72,3;Lycopodiaceae;native
+L044;18/07/2019;Dimitile;R3;Phylica nitida;29,4;Rhamnaceae;native
+L045;18/07/2019;Dimitile;R2;Hyparrhenia rufa;43,7;Poaceae;native
+L046;16/07/2019;Grand brule;R2;Cynodon dactylon;27,1;Poaceae;native
+L047;17/07/2019;Plaine des palmistes;R1;Benthamia africana;0,6;Orchidaceae;native
+L048;17/07/2019;Plaine des palmistes;R3;Lycopodiella cernua;39,4;Lycopodiaceae;native
+L049;18/07/2019;Dimitile;R3;Phylica nitida;62;Rhamnaceae;native
+L050;17/07/2019;Plaine des palmistes;R2;Erica reunionensis;28;Ericaceae;native
+L051;16/07/2019;Grand brule;R2;Lycopodiella cernua;55,1;Lycopodiaceae;native
+L052;16/07/2019;Grand brule;R3;Miconia crenata;21,3;Melastomataceae;invasive
+L053;16/07/2019;Grand brule;R2;Desmodium ramosissimum;21,1;Fabaceae;native
+L054;17/07/2019;Plaine des palmistes;R1;Benthamia africana;14,8;Orchidaceae;native
+L055;18/07/2019;Dimitile;R3;Dicranopteris linearis;67,7;Gleicheniaceae;native
+L056;16/07/2019;Grand brule;R3;Psidium cattleianum;48;Myrtaceae;invasive
+L058;18/07/2019;Dimitile;R3;Lycopodium clavatum;64,7;Lycopodiaceae;native
+L059;17/07/2019;Plaine des palmistes;R1;Phyllanthus phillyreifolius;48,7;Phyllanthaceae;native
+L060;16/07/2019;Grand brule;R1;Desmodium ramosissimum;44,4;Fabaceae;native
+L061;18/07/2019;Dimitile;R2;Hyparrhenia rufa;28,9;Poaceae;native
+L062;16/07/2019;Grand brule;R1;Miconia crenata;64,9;Melastomataceae;invasive
+L063;16/07/2019;Grand brule;R3;Nephrolepis biserrata;73,4;Nephrolepidaceae;native
+L064;18/07/2019;Dimitile;R1;Lycopodium clavatum;48,4;Lycopodiaceae;native
+L065;17/07/2019;Plaine des palmistes;R3;Benthamia africana;6,7;Orchidaceae;native
+L066;17/07/2019;Plaine des palmistes;R3;Machaerina iridifolia;23,8;Cyperaceae;native
+L067;16/07/2019;Grand brule;R1;Miconia crenata;34;Melastomataceae;invasive
+L068;16/07/2019;Grand brule;R3;Stachytarpheta jamaicensis;42;Verbenaceae;exotic
+L069;16/07/2019;Grand brule;R3;Stachytarpheta jamaicensis;16,3;Verbenaceae;exotic
+L070;17/07/2019;Plaine des palmistes;R1;Lycopodiella cernua;44,4;Lycopodiaceae;native
+L072;16/07/2019;Grand brule;R1;Arundina graminifolia;85,8;Orchidaceae;invasive
+L073;17/07/2019;Plaine des palmistes;R2;Benthamia africana;6,5;Orchidaceae;native
+L075;16/07/2019;Grand brule;R2;Desmodium incanum;42;Fabaceae;exotic
+L076;16/07/2019;Grand brule;R1;Desmodium ramosissimum;35,7;Fabaceae;native
+L077;17/07/2019;Plaine des palmistes;R2;Erica reunionensis;44;Ericaceae;native
+L078;18/07/2019;Dimitile;R1;Cordyline mauritiana;23,6;Asparagaceae;native
+L079;16/07/2019;Grand brule;R1;Desmodium incanum;52,3;Fabaceae;exotic
+L080;18/07/2019;Dimitile;R3;Phylica nitida;38,1;Rhamnaceae;native
+L081;16/07/2019;Grand brule;R3;Desmodium incanum;21,9;Fabaceae;exotic
+L082;17/07/2019;Plaine des palmistes;R2;Tristemma mauritianum;55,7;Melastomataceae;native
+L084;18/07/2019;Dimitile;R3;Stoebe passerinoides;19,5;Asteraceae;native
+L085;18/07/2019;Dimitile;R2;Dicranopteris linearis;32,7;Gleicheniaceae;native
+L086;17/07/2019;Plaine des palmistes;R2;Erica reunionensis;38,5;Ericaceae;native
+L087;17/07/2019;Plaine des palmistes;R1;Lycopodiella cernua;61,6;Lycopodiaceae;native
+L088;16/07/2019;Grand brule;R1;Nephrolepis abrupta;20,2;Nephrolepidaceae;native
+L089;18/07/2019;Dimitile;R1;Dicranopteris linearis;33;Gleicheniaceae;native
+L090;18/07/2019;Dimitile;R3;Lycopodium clavatum;7,3;Lycopodiaceae;native
+L091;16/07/2019;Grand brule;R3;Stenotaphrum dimidiatum;48,5;Poaceae;invasive
+L092;18/07/2019;Dimitile;R2;Hyparrhenia rufa;55,6;Poaceae;native
+L093;16/07/2019;Grand brule;R3;Lycopodiella cernua;42,8;Lycopodiaceae;native
+L095;17/07/2019;Plaine des palmistes;R1;Stoebe passerinoides;23;Asteraceae;native
+L096;17/07/2019;Plaine des palmistes;R2;Rhynchospora rugosa;2;Cyperaceae;native
+L097;17/07/2019;Plaine des palmistes;R3;Machaerina iridifolia;32;Cyperaceae;native
+L098;16/07/2019;Grand brule;R2;Nephrolepis abrupta;74;Nephrolepidaceae;native
+L099;18/07/2019;Dimitile;R2;Stoebe passerinoides;45;Asteraceae;native
+L100;16/07/2019;Grand brule;R3;Stenotaphrum dimidiatum;50;Poaceae;invasive
+L101;17/07/2019;Plaine des palmistes;R1;Machaerina iridifolia;58;Cyperaceae;native
+L103;18/07/2019;Dimitile;R1;Hyparrhenia rufa;71;Poaceae;native
+L105;16/07/2019;Grand brule;R2;Desmodium ramosissimum;2;Fabaceae;native
+L106;16/07/2019;Grand brule;R1;Cynodon dactylon;2;Poaceae;native
+L107;17/07/2019;Plaine des palmistes;R3;Hubertia ambavilla;88;Asteraceae;native
+L108;16/07/2019;Grand brule;R1;Lycopodiella cernua;45;Lycopodiaceae;native
+L109;16/07/2019;Grand brule;R1;Costularia melicoides;25;Cyperaceae;native
+L110;16/07/2019;Grand brule;R3;Stenotaphrum dimidiatum;74;Poaceae;invasive
+L112;17/07/2019;Plaine des palmistes;R3;Polytrichum commune;70;Polytrichaceae;native
+L113;18/07/2019;Dimitile;R2;Lycopodium clavatum;43;Lycopodiaceae;native
+L114;18/07/2019;Dimitile;R3;Stoebe passerinoides;65;Asteraceae;native
+L115;18/07/2019;Dimitile;R2;Polytrichum commune;80;Polytrichaceae;native
+L116;16/07/2019;Grand brule;R3;Miconia crenata;60;Melastomataceae;invasive
+L117;17/07/2019;Plaine des palmistes;R1;Rhynchospora rugosa;21;Cyperaceae;native
+L118;16/07/2019;Grand brule;R1;Nephrolepis abrupta;56;Nephrolepidaceae;native
+L119;17/07/2019;Plaine des palmistes;R2;Polytrichum commune;25;Polytrichaceae;native
+L120;16/07/2019;Grand brule;R1;Cynodon dactylon;56;Poaceae;native
+L121;16/07/2019;Grand brule;R3;Lycopodiella cernua;45;Lycopodiaceae;native
+L122;17/07/2019;Plaine des palmistes;R3;Lycopodiella cernua;68;Lycopodiaceae;native
+L123;17/07/2019;Plaine des palmistes;R2;Benthamia africana;2;Orchidaceae;native
+L125;17/07/2019;Plaine des palmistes;R1;Polytrichum commune;64;Polytrichaceae;native
+L126;17/07/2019;Plaine des palmistes;R3;Juncus effusus;60;Juncaceae;native
+L127;17/07/2019;Plaine des palmistes;R2;Rhynchospora rugosa;25;Cyperaceae;native
+L128;17/07/2019;Plaine des palmistes;R3;Ipomea sp.1;50;Convolvulaceae;exotic
+L129;17/07/2019;Plaine des palmistes;R3;Lycopodiella caroliniana;2;Lycopodiaceae;native
+L130;17/07/2019;Plaine des palmistes;R2;Machaerina iridifolia;47;Cyperaceae;native
+L131;17/07/2019;Plaine des palmistes;R2;Lycopodiella caroliniana;9;Lycopodiaceae;native
+L132;18/07/2019;Dimitile;R2;Habenaria frappieri;13;Orchidaceae;native
+L133;18/07/2019;Dimitile;R2;Lycopodium clavatum;49;Lycopodiaceae;native
+L134;18/07/2019;Dimitile;R3;Erica reunionensis;69;Ericaceae;native
+L135;17/07/2019;Plaine des palmistes;R1;Lycopodiella cernua;69;Lycopodiaceae;native
+L136;16/07/2019;Grand brule;R3;Nephrolepis biserrata;62;Nephrolepidaceae;native
+L137;17/07/2019;Plaine des palmistes;R3;Juncus effusus;14;Juncaceae;native
+L138;17/07/2019;Plaine des palmistes;R1;Lycopodiella cernua;43;Lycopodiaceae;native
+L140;18/07/2019;Dimitile;R3;Hyparrhenia rufa;5;Poaceae;native
+L141;18/07/2019;Dimitile;R2;Dicranopteris linearis;79;Gleicheniaceae;native
+L142;18/07/2019;Dimitile;R3;Lycopodium clavatum;64;Lycopodiaceae;native
+L143;16/07/2019;Grand brule;R3;Stachytarpheta jamaicensis;44;Verbenaceae;exotic
+L144;17/07/2019;Plaine des palmistes;R3;Benthamia africana;40;Orchidaceae;native
+L145;17/07/2019;Plaine des palmistes;R2;Tristemma mauritianum;73;Melastomataceae;native
+L146;18/07/2019;Dimitile;R3;Hyparrhenia rufa;84;Poaceae;native
+L147;17/07/2019;Plaine des palmistes;R1;Stoebe passerinoides;31;Asteraceae;native
+L148;17/07/2019;Plaine des palmistes;R3;Lycopodiella caroliniana;39;Lycopodiaceae;native
+L149;17/07/2019;Plaine des palmistes;R3;Benthamia africana;12;Orchidaceae;native
+L150;17/07/2019;Plaine des palmistes;R3;Lycopodiella cernua;22;Lycopodiaceae;native
+L151;17/07/2019;Plaine des palmistes;R2;Dicranopteris linearis;74;Gleicheniaceae;native
+L152;17/07/2019;Plaine des palmistes;R3;Lycopodiella caroliniana;25;Lycopodiaceae;native
+L153;18/07/2019;Dimitile;R3;Stoebe passerinoides;34;Asteraceae;native
+L154;16/07/2019;Grand brule;R1;Costularia melicoides;36;Cyperaceae;native
+L155;17/07/2019;Plaine des palmistes;R3;Erica reunionensis;42;Ericaceae;native
+L156;16/07/2019;Grand brule;R1;Miconia crenata;46;Melastomataceae;invasive
+L157;16/07/2019;Grand brule;R1;Desmodium ramosissimum;46;Fabaceae;native
+L158;17/07/2019;Plaine des palmistes;R1;Polytrichum commune;40;Polytrichaceae;native
+L160;18/07/2019;Dimitile;R2;Phylica nitida;44;Rhamnaceae;native
+L161;18/07/2019;Dimitile;R1;Dicranopteris linearis;33;Gleicheniaceae;native
+L162;16/07/2019;Grand brule;R2;Lycopodiella cernua;25;Lycopodiaceae;native
+L163;16/07/2019;Grand brule;R2;Tristemma mauritianum;83;Melastomataceae;native
+L164;16/07/2019;Grand brule;R2;Dicranopteris linearis;100;Gleicheniaceae;native
+L165;16/07/2019;Grand brule;R3;Desmodium incanum;31;Fabaceae;exotic
+L166;16/07/2019;Grand brule;R1;Costularia melicoides;59;Cyperaceae;native
+L167;16/07/2019;Grand brule;R2;Dicranopteris linearis;76;Gleicheniaceae;native
+L168;18/07/2019;Dimitile;R3;Dicranopteris linearis;69;Gleicheniaceae;native
+L169;18/07/2019;Dimitile;R2;Polytrichum commune;60;Polytrichaceae;native
+L170;17/07/2019;Plaine des palmistes;R1;Benthamia africana;23;Orchidaceae;native
+L171;18/07/2019;Dimitile;R2;Phylica nitida;39;Rhamnaceae;native
+L172;16/07/2019;Grand brule;R2;Nephrolepis abrupta;41;Nephrolepidaceae;native
+L173;18/07/2019;Dimitile;R3;Stoebe passerinoides;81;Asteraceae;native
+L174;16/07/2019;Grand brule;R1;Dicranopteris linearis;92;Gleicheniaceae;native
+L175;17/07/2019;Plaine des palmistes;R1;Machaerina iridifolia;80;Cyperaceae;native
+L176;16/07/2019;Grand brule;R2;Desmodium incanum;40;Fabaceae;exotic
+L177;16/07/2019;Grand brule;R1;Arundina graminifolia;96;Orchidaceae;invasive
+L178;16/07/2019;Grand brule;R1;Lycopodiella cernua;88;Lycopodiaceae;native
+L179;18/07/2019;Dimitile;R2;Lycopodium clavatum;52;Lycopodiaceae;native
+L180;17/07/2019;Plaine des palmistes;R3;Machaerina iridifolia;72;Cyperaceae;native
+L182;16/07/2019;Grand brule;R3;Psidium cattleianum;36;Myrtaceae;invasive
+L183;18/07/2019;Dimitile;R2;Polytrichum commune;72;Polytrichaceae;native
+L184;17/07/2019;Plaine des palmistes;R3;Ipomea sp.1;46;Convolvulaceae;exotic
+L185;16/07/2019;Grand brule;R1;Nephrolepis abrupta;16;Nephrolepidaceae;native
+L186;18/07/2019;Dimitile;R2;Dicranopteris linearis;36;Gleicheniaceae;native
+L187;16/07/2019;Grand brule;R1;Arundina graminifolia;78;Orchidaceae;invasive
+L188;16/07/2019;Grand brule;R1;Desmodium incanum;50;Fabaceae;exotic
+L189;18/07/2019;Dimitile;R3;Dicranopteris linearis;41;Gleicheniaceae;native
+L190;17/07/2019;Plaine des palmistes;R3;Juncus effusus;74;Juncaceae;native
+L191;17/07/2019;Plaine des palmistes;R2;Machaerina iridifolia;33;Cyperaceae;native
+L192;18/07/2019;Dimitile;R1;Lycopodium clavatum;33;Lycopodiaceae;native
+L193;17/07/2019;Plaine des palmistes;R3;Erica reunionensis;48;Ericaceae;native
+L194;16/07/2019;Grand brule;R1;Lycopodiella cernua;48;Lycopodiaceae;native
+L195;17/07/2019;Plaine des palmistes;R2;Dicranopteris linearis;81;Gleicheniaceae;native
+L196;16/07/2019;Grand brule;R2;Lycopodiella cernua;58;Lycopodiaceae;native
+L197;16/07/2019;Grand brule;R2;Psidium cattleianum;63;Myrtaceae;invasive
+L198;17/07/2019;Plaine des palmistes;R1;Rhynchospora rugosa;60;Cyperaceae;native
+L199;16/07/2019;Grand brule;R3;Desmodium incanum;39;Fabaceae;exotic
+L200;17/07/2019;Plaine des palmistes;R2;Polytrichum commune;54;Polytrichaceae;native
+L202;16/07/2019;Grand brule;R2;Tristemma mauritianum;74;Melastomataceae;native
+L203;16/07/2019;Grand brule;R2;Desmodium ramosissimum;30;Fabaceae;native
+L204;17/07/2019;Plaine des palmistes;R3;Rhynchospora rugosa;65;Cyperaceae;native
+L205;17/07/2019;Plaine des palmistes;R1;Rhynchospora rugosa;65;Cyperaceae;native
+L206;18/07/2019;Dimitile;R3;Hyparrhenia rufa;77;Poaceae;native
+L217;18/07/2019;Dimitile;R1;Erica reunionensis;60;Ericaceae;native
+L218;18/07/2019;Dimitile;R2;Phylica nitida;46;Rhamnaceae;native
+L219;18/07/2019;Dimitile;R2;Polytrichum commune;6;Polytrichaceae;native
+L220;18/07/2019;Dimitile;R2;Erica reunionensis;55;Ericaceae;native
+L221;18/07/2019;Dimitile;R2;Erica reunionensis;20;Ericaceae;native
+L222;18/07/2019;Dimitile;R2;Polytrichum commune;7;Polytrichaceae;native
+L223;18/07/2019;Dimitile;R1;Erica reunionensis;46;Ericaceae;native
+L224;18/07/2019;Dimitile;R1;Stoebe passerinoides;40;Asteraceae;native
+L225;18/07/2019;Dimitile;R1;Phylica nitida;15;Rhamnaceae;native
+L226;18/07/2019;Dimitile;R2;Phylica nitida;50;Rhamnaceae;native
+L227;18/07/2019;Dimitile;R1;Stoebe passerinoides;44;Asteraceae;native
+L228;18/07/2019;Dimitile;R2;Stoebe passerinoides;17;Asteraceae;native
+L230;18/07/2019;Dimitile;R2;Polytrichum commune;2;Polytrichaceae;native
+L231;18/07/2019;Dimitile;R1;Lycopodium clavatum;26;Lycopodiaceae;native
+L232;18/07/2019;Dimitile;R2;Phylica nitida;2;Rhamnaceae;native
+L233;18/07/2019;Dimitile;R1;Stoebe passerinoides;9;Asteraceae;native
+L234;18/07/2019;Dimitile;R1;Stoebe passerinoides;14;Asteraceae;native
+L235;18/07/2019;Dimitile;R2;Stoebe passerinoides;2;Asteraceae;native
+L236;18/07/2019;Dimitile;R1;Erica reunionensis;25;Ericaceae;native
+L237;18/07/2019;Dimitile;R1;Stoebe passerinoides;2;Asteraceae;native
+L238;18/07/2019;Dimitile;R2;Erica reunionensis;47;Ericaceae;native
+L239;18/07/2019;Dimitile;R1;Lycopodium clavatum;18;Lycopodiaceae;native
+L241;18/07/2019;Dimitile;R1;Erica reunionensis;10;Ericaceae;native
+L242;18/07/2019;Dimitile;R2;Dicranopteris linearis;20;Gleicheniaceae;native
+L243;18/07/2019;Dimitile;R2;Erica reunionensis;45;Ericaceae;native
+L244;18/07/2019;Dimitile;R1;Erica reunionensis;50;Ericaceae;native
+L245;18/07/2019;Dimitile;R2;Phylica nitida;16;Rhamnaceae;native
+L246;18/07/2019;Dimitile;R1;Stoebe passerinoides;9;Asteraceae;native
+L247;18/07/2019;Dimitile;R2;Polytrichum commune;7;Polytrichaceae;native
+L248;18/07/2019;Dimitile;R1;Phylica nitida;26;Rhamnaceae;native
+L249;18/07/2019;Dimitile;R1;Phylica nitida;5;Rhamnaceae;native
+L250;18/07/2019;Dimitile;R1;Erica reunionensis;15;Ericaceae;native
+L251;18/07/2019;Dimitile;R2;Stoebe passerinoides;13;Asteraceae;native
+L252;18/07/2019;Dimitile;R1;Erica reunionensis;4;Ericaceae;native
+L253;18/07/2019;Dimitile;R1;Lycopodium clavatum;2;Lycopodiaceae;native
+L254;18/07/2019;Dimitile;R1;Phylica nitida;5;Rhamnaceae;native
+L255;18/07/2019;Dimitile;R1;Erica reunionensis;5;Ericaceae;native
+L256;18/07/2019;Dimitile;R1;Phylica nitida;14;Rhamnaceae;native
