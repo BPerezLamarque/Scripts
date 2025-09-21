@@ -24,24 +24,27 @@ OTU_table <- read.table("OTU_table_La_Reunion_18S_OTU97.csv", sep=";", header = 
 
 View(OTU_table) # OTUs are on rows and samples on columns 
 
-OTU_infos <- colnames(OTU_table)[1:8] # the 8 first columns give information on the OTUs
+OTU_infos <- colnames(OTU_table)[1:8] # the 8 first columns give some information on the OTUs
 
 
 # Select only the samples from Grand Brûlé 
 list_samples <- metadata$SampleID[which(metadata$Site=="Grand brule")]
 
 
-# Extract in the full OTU table
+# Extract the full OTU table from Grand Brûlé 
 OTU_table_filtered <- OTU_table[,c(OTU_infos, list_samples)]
 
 
+# Save the filtered OTU table for the next step
 write.table(OTU_table_filtered, "OTU_table_Grand_brule_18S_OTU97.csv", sep=";", row.names=FALSE, quote=FALSE)
 
 
-## You can imagine to only keep OTU belonging to Glomeromycotina (to study plant-Glomeromycotina interactions) 
+# Other extractions:
+
+## For instance, you can imagine to only keep OTU belonging to Glomeromycotina (to study plant-Glomeromycotina interactions):
 OTU_table_filtered <- OTU_table[grep("Glomeromycotina", OTU_table$taxonomy),]
 
-## If you want to only keep OTU belonging to Glomeromycotina + Mucoromycotina
+## or if you want to only keep OTU belonging to Glomeromycotina + Mucoromycotina:
 OTU_table_filtered <- OTU_table[grep("Glomeromycotina|Mucoromycotina", OTU_table$taxonomy),]
 
 
@@ -53,7 +56,7 @@ rm(list=ls())
 
 library(ggplot2)
 
-
+# Path to be changed
 setwd("/Users/bperez/Nextcloud/Recherche/Toulouse/Enseignement/Master_TULIP-GS/2025/Project/data/")
 
 
@@ -85,17 +88,17 @@ for (sample in list_samples){
   
   for (nb_reads in seq(1000, 30000, 2500) ){
     
-    if (sum(OTU_table[ ,sample])>nb_reads){ # only perform a rarefaction at nb_reads if the sample has more than nb_reads reads
+    if (sum(OTU_table[ ,sample])>nb_reads){ # only perform a rarefaction at "nb_reads" if the sample has more than "nb_reads" reads
       
       number <- 0
       
-      # Subsample 10 times nb_reads reads in each sample 
+      # Subsample 10 times "nb_reads" reads in each sample 
       for (j in 1:10){
         list_sampled_OTUs <- sample(size= nb_reads, x = list_OTUs, prob = OTU_table[ ,sample], replace=TRUE)
         number <- number + length(unique(list_sampled_OTUs))
       }
       
-      number <- number/10 # average number of OTU in the sample when subsampling at nb_reads reads
+      number <- number/10 # average number of OTU in the sample when subsampling at "nb_reads" reads
       
       table_raref <- rbind(table_raref, c(sample, nb_reads, number))
     }
@@ -120,7 +123,7 @@ dev.off()
 
 ### 2) Convert the number of reads into relative abundances and filter possible contaminants
 
-# Consider that on OTU present in less than 3 reads is a cross-contamination
+# We consider that an OTU present in less than 3 reads is a cross-contamination
 
 
 for (sample in list_samples){
@@ -130,7 +133,7 @@ for (sample in list_samples){
   # Compute relative abundance
   OTU_table[,sample] <- OTU_table[,sample]/sum(OTU_table[,sample])
   
-  # Apply a minimum threshold to consider an OTU as truly present (e.g. 0.1%)
+  # Apply a minimum threshold to consider an OTU as truly present (e.g. here 0.1%)
   OTU_table[which(OTU_table[,sample]<0.001), sample] <- 0
   
   # Compute relative abundance again
@@ -171,7 +174,6 @@ for (i in 1:ncol(OTU_table)){
   if (colnames(OTU_table)[i] %in% metadata$SampleID){
     colnames(OTU_table)[i] <- paste0(metadata$Plant.species[metadata$SampleID==colnames(OTU_table)[i]], "_",colnames(OTU_table)[i])
   }
-  
 }
 
 
@@ -205,8 +207,6 @@ OTU_table$phylum[grep("Neocallimastigomycota|", OTU_table$phylum, fixed=TRUE)] <
 table(OTU_table$phylum)
 
 
-# Option: Do the same for the classes or orders... 
-
 
 # 2) Plot the bar charts
 
@@ -226,6 +226,7 @@ print(p)
 dev.off()
 
 
+# Option: Do the same for the classes or orders... 
 
 
 
@@ -284,7 +285,7 @@ dev.off()
 # 2) Test whether invasive plants tend to associate with less fungal species than native ones
 
 
-# test the effect of plant species on alpha diversity
+# Test the effect of plant species on alpha diversity
 
 kruskal.test(alpha_div$OTU_richness ~ alpha_div$species)
 kruskal.test(alpha_div$Shannon ~ alpha_div$species)
@@ -353,15 +354,7 @@ ggplot(data_pcoa,aes(x=Axis.1,y=Axis.2, color=origin, fill=origin))+xlab(paste0(
 dev.off()
 
 
-# 2) Test whether samples belonging to the same plant species tend to have similar composition 
-
-# Test the dispersion of the beta diversity
-mod2 <- betadisper(dist_bray, species)
-print(anova(mod2))
-
-mod2 <- betadisper(dist_bray, origin)
-print(anova(mod2))
-
+# 2) Test whether samples belonging to the same plant species tend to have similar compositions
 
 # PermANOVA
 
