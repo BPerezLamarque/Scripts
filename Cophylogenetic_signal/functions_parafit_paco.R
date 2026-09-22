@@ -8,6 +8,10 @@
 #### For more details about this script, see "Comparing different computational approaches for detecting long-term vertical transmission in host-associated microbiota", Perez-Lamarque B & Morlon H, in prep.
 
 
+
+####  Functions from the packages APE (parafit) ####
+
+
 parafit_test <- function (host.D, para.D, HP, nperm = 999, test.links = FALSE, 
                           seed = NULL, correction = "none", silent = FALSE,
                           nullmodel=1) {
@@ -326,7 +330,7 @@ pcoa_test <-  function (D, correction = "none", rn = NULL) {
 }
 
 
-########  functions from the packages PACo ####
+####  Functions from the packages PACo ####
 
 
 add_pcoord_test <- function (D) {
