@@ -11,7 +11,7 @@ It also allows to generate “null expectations” on the expected patterns base
 
 <br>
 
-**Citation:** Ibos Y., Sagnard A., Perez-Lamarque B., Assessing the influence of biogeography on (co)phylogenetic signals in species interactions, 2026, in prep.
+**Citation:** Ibos Y, Sagnard A, Perez-Lamarque B (2026), Assessing the influence of biogeography on (co)phylogenetic signals in species interactions, in prep.
 
 
 **Contact:** benoit.perez-lamarque@utoulouse.fr

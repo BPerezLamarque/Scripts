@@ -53,7 +53,7 @@ nperm <- 1000 # At least 10000 permutations should be used (1000 is only for pro
 PACo_result <- PACo_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
 
 # Print the test statistic and p-value under "H0"
-PACo_result[c("R2_obs","p")] # 
+PACo_result[c("R2_obs","p")]
 
 # Plot the null distribution under "H0"
 plot_null_model(PACo_result, "paco")
