@@ -27,7 +27,7 @@ XXX
 <br> 
 
 
-## Option 3: Assess the effect of biogeography on the phylogenetic signal in species interactions
+## Assessing the effect of biogeography on the cophylogenetic signal in species interactions
 
 This can be using biogeography-based permutations that only shuffle species that co-occur on the same area. <a href="https://github.com/BPerezLamarque/Scripts/tree/master/Biogeography_interactions">See the complete tutorial here.</a> (citation: Ibos et al., 2026, in prep.) 
 
