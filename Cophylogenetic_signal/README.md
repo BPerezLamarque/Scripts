@@ -27,7 +27,54 @@ Contact: benoit.perez-lamarque@utoulouse.fr
 
 # Guidelines for measuring cophylogenetic signals in species interaction network:
 
-XXX
+Functions for measuring cophylogenetic signals are available from the <a href="https://github.com/BPerezLamarque/EVOLI">EVOLI R-package</a> (Ibos et al., in prep).
+
+## Load the data
+```r
+library(EVOLI)
+
+
+data("cophylogenetic_system") # Load the data
+
+tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
+tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
+network <- cophylogenetic_system$network # Present-day interaction network between species of clade A (on columns) and species of clade B (on rows)
+table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column table indicating the biogeographic repartition of each species of clade A
+
+
+nperm <- 1000 # At least 10000 permutations should be used (1000 is only for providing a fast example)
+
+```
+
+## Run PACo
+```r
+
+# Run PACo under "H0" (random shuffling of the species labels)
+PACo_result <- PACo_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
+
+# Print the test statistic and p-value under "H0"
+PACo_result[c("R2_obs","p")] # 
+
+# Plot the null distribution under "H0"
+plot_null_model(PACo_result, "paco")
+
+```
+
+
+## Run ParaFit
+```r
+# Run ParaFit under "H0" (random shuffling of the species labels)
+parafit_result <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
+
+# Print the test statistic and p-value under "H0"
+parafit_result[c("ParaFitGlobal","p")]
+
+# Plot the null distribution under "H0"
+plot_null_model(parafit_result, "parafit")
+
+```
+
+
 
 
 <br> 

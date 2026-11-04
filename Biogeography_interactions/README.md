@@ -19,6 +19,17 @@ It also allows to generate “null expectations” on the expected patterns base
 <br> 
 
 
+
+# Install the EVOLI package
+
+
+```r
+library(devtools)
+
+install_github("BPerezLamarque/EVOLI", dependencies = TRUE)
+
+```
+
 # Load the data: 
 
 
