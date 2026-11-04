@@ -1,12 +1,11 @@
-**Guidelines to measure cophylogenetic signal and phylogenetic congruence in a bipartite interaction network:**
+**Guidelines for assessing the influence of biogeography on (co)phylogenetic signals in species interactions:**
 ====
 
 <br>
 
 
-It contains functions to analyze cophylogenetic systems, in particular to measure cophylogenetic signal, phylogenetic congruence, phylogenetic signal, or phylosymbiosis. 
-
-It also allows to generate “null expectations” on the expected patterns based on the species' biogeography, i.e. whether the observed phylogenetic patterns can be explained by biogeographic conservatism alone.
+This tutorial presents functions from the EVOLI R-package to evaluate the effect of biogeography on (co)phylogenetic patterns of species interactions (e.g. cophylogenetic signal, phylogenetic signal, phylosymbiosis...). 
+To do so, it performs biogeography-based permutations. 
 
 
 <br>
