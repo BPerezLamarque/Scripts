@@ -8,8 +8,8 @@ This folder contains the scripts for reproducing the analysis of *Distinguishing
 <br>
 
 These scripts can be used to mesure two different patterns: 
-1) **cophylogenetic signal** ("do closely related hosts interact with closely related symbionts?")
-2) **phylogenetic congruence** ("do host and symbiont phylogenies mirror one another?").
+1) **Cophylogenetic signal** ("Do closely related hosts interact with closely related symbionts?")
+2) **Phylogenetic congruence** ("Do host and symbiont phylogenies mirror one another?").
 
 <br>
 
