@@ -14,7 +14,7 @@ install.packages("igraph")
 rm(list=ls())
 
 # Set your working directory (! You need to change the path)
-setwd("/Users/bperez/Nextcloud/Recherche/Toulouse/Enseignement/Master_TULIP-GS/2025/Project/data/")
+setwd("/Users/bperez/Nextcloud/Recherche/Toulouse/Enseignement/Master/Master_TULIP-GS/2026/Project/data/")
 
 # Open the metadata
 metadata <- read.table("metadata_project_La_Reunion.csv", sep=";", header = TRUE, dec=",")
@@ -57,7 +57,7 @@ rm(list=ls())
 library(ggplot2)
 
 # Path to be changed
-setwd("/Users/bperez/Nextcloud/Recherche/Toulouse/Enseignement/Master_TULIP-GS/2025/Project/data/")
+setwd("/Users/bperez/Nextcloud/Recherche/Toulouse/Enseignement/Master/Master_TULIP-GS/2026/Project/data/")
 
 
 OTU_table <- read.table("OTU_table_Grand_brule_18S_OTU97.csv", sep=";", header=TRUE)
@@ -239,7 +239,7 @@ library(vegan)
 library(nlme)
 
 
-setwd("/Users/bperez/Nextcloud/Recherche/Toulouse/Enseignement/Master_TULIP-GS/2025/Project/data/")
+setwd("/Users/bperez/Nextcloud/Recherche/Toulouse/Enseignement/Master/Master_TULIP-GS/2026/Project/data/")
 
 OTU_table <- read.table("OTU_table_fungi_Grand_brule_final.csv", sep=";", header=TRUE)
 
@@ -259,7 +259,7 @@ for (sample in list_samples){
                                   metadata$Plant.species[which(metadata$SampleID==sample)], # which plant species
                                   metadata$origin[which(metadata$SampleID==sample)],  # which origin (invasive, exotic or native)
                                   length(which(abundances>0)), # species richness
-                                  diversity(abundances, index = "shannon") ) ) # Shannon index
+                                  vegan::diversity(abundances, index = "shannon") ) ) # Shannon index
   
 }
 
