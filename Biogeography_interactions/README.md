@@ -19,61 +19,87 @@ It also allows to generate “null expectations” on the expected patterns base
 <br> 
 
 
-# Example of R script: 
+# Load the data: 
 
 
 ```r
 
-library(ape)
-library(phytools)
-library(vegan)
-
-load("functions_cophylo.R")
+library(EVOLI)
 
 
-# Open the trees 
-tree_B= read.tree("tree_A.tre")
-tree_A = read.tree("tree_B.tre")
-    
-dist_B <- cophenetic(tree_B)
-dist_A <- cophenetic(tree_A)
-    
+data("cophylogenetic_system") # Load the data
 
-# open the interaction network
-network = read.table(paste0("network_",name,"_",seed,".csv"),sep=";",header= TRUE)
-# species on clade A are on columns, and species on clade B on rows
-    
+tree_A <- cophylogenetic_system$tree_A # Phylogenetic tree of clade A
+tree_B <- cophylogenetic_system$tree_B # Phylogenetic tree of clade B
+network <- cophylogenetic_system$network # Present-day interaction network between species of clade A (on columns) and species of clade B (on rows)
+table_biogeo_host <- cophylogenetic_system$table_biogeo_host # A two-column table indicating the biogeographic repartition of each species of clade A
 
-# Indicate the biogeography of clade A (columns) in the following table 
-table_biogeo = data.frame(species= colnames(network),biogeo= bgeo)
-    
-nperm <- 10000
 
-    
-## Run PACo
-D <-prepare_paco_data_test(dist_A, dist_B, network)
-PACo_result <- PACo_test(D, nperm = nperm, seed = NA, nullmodel = 2, symmetric = TRUE)
-PACo_result_biogeo <- PACo_test(D, nperm = nperm, seed = NA, nullmodel = 3, symmetric = TRUE, table_biogeo=table_biogeo) # when constraining the biogeography
-    
-# Parafit 
-parafit_result <- parafit_test(dist_A, dist_B, network, nperm = nperm, nullmodel = 2)
-parafit_result_biogeo <- parafit_test(dist_A, dist_B, network, nperm = nperm, nullmodel = 3, table_biogeo = table_biogeo) # when constraining the biogeography
-    
-# Mantel 
-mantel_result <- phylosignal_network(network, tree_A, method="Jaccard_binary", nperm = nperm, correlation = "Pearson", only_A = TRUE, permutation ="shuffle")
-mantel_result_biogeo <- phylosignal_network(network, tree_A, method="Jaccard_binary", nperm = nperm, correlation = "Pearson", only_A = TRUE, permutation ="biogeo", table_biogeo=table_biogeo) # when constraining the biogeography
-    
-# Summarize all the results
-res <- c(name, seed, round(PACo_result$R2_obs,5), PACo_result$p, PACo_result_biogeo$p, 
-             round(parafit_result$ParaFitGlobal,0), parafit_result$p, parafit_result_biogeo$p, 
-             round(mantel_result$mantel_cor_A,4), mantel_result$p_upper_A, mantel_result_biogeo$p_upper_A)
-names(res) <- c("name", "seed", "R2_paco", "p_paco", "p_paco_biogeo", "R_parafit", "p_parafit", "p_parafit_biogeo", "R_mantel", "p_mantel", "p_mantel_biogeo") 
-
-print(res)
-    
-# Plot the null expectations in the patterns based on the biogeography
-plot_H0(PACo_result, PACo_result_biogeo, "paco")
-plot_H0(parafit_result, parafit_result_biogeo, "parafit")
-plot_H0(mantel_result, mantel_result_biogeo, "mantel")
+nperm <- 1000 # At least 10000 permutations should be used (1000 is only for providing a fast example)
 
 ```
+
+# Run Mantel tests: 
+
+```r
+
+# Run Mantel test under "H0" (random shuffling of the species labels)
+mantel_result <- phylosignal_network(network, tree_A, method="Jaccard_binary", nperm = nperm, permutation ="shuffle")
+
+# Run Mantel test under "H0 biogeo" (biogeography-based shuffling of the species labels)
+mantel_result_biogeo <- phylosignal_network(network, tree_A, method="Jaccard_binary", nperm = nperm, permutation ="biogeo", table_biogeo = table_biogeo_host)
+
+# Compare the results obtained under the two null models 
+mantel_result[c("mantel_cor_A","p_upper_A")] # Test statistic and p-value under "H0"
+mantel_result_biogeo[c("mantel_cor_A","p_upper_A")] # Test statistic and p-value under "H0 biogeo"
+compare_null_models(mantel_result, mantel_result_biogeo, method = "mantel") # Standardized effect sizes and f fraction
+
+# Plot the distributions under the two null models
+plot_null_models_comparison(mantel_result, mantel_result_biogeo, "mantel")
+
+
+```
+
+# Run PACo: 
+
+```r
+
+# Run PACo under "H0" (random shuffling of the species labels)
+PACo_result <- PACo_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
+
+# Run PACo under "H0 biogeo" (biogeography-based shuffling of the species labels)
+PACo_result_biogeo <- PACo_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "biogeo", table_biogeo = table_biogeo_host)
+
+# Compare the results obtained under the two null models 
+PACo_result[c("R2_obs","p")] # Test statistic and p-value under "H0"
+PACo_result_biogeo[c("R2_obs","p")] # Test statistic and p-value under "H0 biogeo"
+compare_null_models(PACo_result, PACo_result_biogeo, method = "paco") # Standardized effect sizes and f fraction
+
+# Plot the distributions under the two null models
+plot_null_models_comparison(PACo_result, PACo_result_biogeo, "paco")
+
+
+
+```
+
+# Run ParaFit: 
+
+```r
+
+# Run ParaFit under "H0" (random shuffling of the species labels)
+parafit_result <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "shuffle")
+
+# Run ParaFit under "H0 biogeo" (biogeography-based shuffling of the species labels)
+parafit_result_biogeo <- parafit_test(tree_A, tree_B, network, nperm = nperm, nullmodel = "biogeo", table_biogeo = table_biogeo_host)
+
+# Compare the results obtained under the two null models 
+parafit_result[c("ParaFitGlobal","p")] # Test statistic and p-value under "H0"
+parafit_result_biogeo[c("ParaFitGlobal","p")] # Test statistic and p-value under "H0 biogeo"
+compare_null_models(parafit_result, parafit_result_biogeo, method = "parafit") # Standardized effect sizes and f fraction
+
+# Plot the distributions under the two null models
+plot_null_models_comparison(parafit_result, parafit_result_biogeo, "parafit")
+
+
+```
+
