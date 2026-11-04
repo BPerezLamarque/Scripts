@@ -1,8 +1,11 @@
 **Guidelines to measure cophylogenetic signal and phylogenetic congruence in a bipartite interaction network:**
 ====
 
+<br>
+
 This folder contains the scripts for reproducing the analysis of *Distinguishing cophylogenetic signal from phylogenetic congruence clarifies the interplay between evolutionary history and species interactions* by Benoît Perez-Lamarque and Hélène Morlon. (citation: <a href="https://doi.org/10.1093/sysbio/syae013">Perez-Lamarque & Morlon, 2024; Systematic Biology</a>) 
 
+<br>
 
 # Contents:
 
@@ -14,13 +17,14 @@ It contains 3 files:
 
 Contact: benoit.perez-lamarque@utoulouse.fr
 
+<br> 
 
 # Guidelines for measuring cophylogenetic signals in species interaction network:
 
 XXX
 
 
-<br> <br>
+<br> 
 
 
 ## Option 3: Assess the effect of biogeography on the phylogenetic signal in species interactions
