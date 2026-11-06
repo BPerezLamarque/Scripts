@@ -23,9 +23,9 @@ To do so, it performs biogeography-based permutations.
 
 
 ```r
-library(devtools)
+library(pak)
 
-install_github("BPerezLamarque/EVOLI", dependencies = TRUE)
+pak::pak("BPerezLamarque/EVOLI", dependencies = TRUE)
 
 ```
 
@@ -36,6 +36,7 @@ install_github("BPerezLamarque/EVOLI", dependencies = TRUE)
 
 library(EVOLI)
 
+set.seed(3)
 
 data("cophylogenetic_system") # Load the data
 
@@ -69,6 +70,34 @@ plot_null_models_comparison(mantel_result, mantel_result_biogeo, "mantel")
 
 
 ```
+
+The Mantel correlation for phylogenetic signal in species interaction in clade A is `R=0.39` and the associated p-values are `p=0.001` under "H0" and `p=0.443` under "H0 biogeo". 
+
+The output of  `compare_null_models` is then:
+
+| Null model | mean | sd | SES | f fraction | 
+| --- | --- | --- | --- | --- |
+| Random permutations (H0) | -0.0044 | 0.0704 | 5.6639 |   |
+| --- | --- | --- | --- | --- |
+| Biogeographic-based permutations (H0 biogeo) | 0.3919 | 0.023 | 0.1073 |  0.9938 |
+
+
+
+which corresponds to the number of orchid species (**nb_A**), the number of fungal species (**nb_B**), and the Mantel correlation between phylogenetic distances and degree difference distances for orchids (**mantel_cor_A**), its associated upper p-value (**pvalue_upper_A**, *i.e.* the fraction of permutations that led to higher correlation values), and its associated lower p-value (**pvalue_lower_A**, *i.e.* the fraction of permutations that led to lower correlation values).
+
+
+
+
+<p align="center">
+    <img src="https://github.com/BPerezLamarque/Phylosignal_network/blob/master/example/figures.png" width="500">
+</p>
+
+<p align="center">
+    <b>A toy example of an interaction network between orchids (in green) and mycorrhizal fungi (in brown) informed with the phylogenetic trees of each guild.</b>
+</p>
+
+
+
 
 # Run PACo: 
 
