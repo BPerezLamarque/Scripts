@@ -82,7 +82,7 @@ The output of  `compare_null_models` is then:
 | Biogeographic-based permutations (H0 biogeo) | 0.3919 | 0.023 | 0.1073 |  0.9938 |
 
 
-which indicates the mean values of the null distributions of the test statistic under "H0" and "H0 biogeo", their standard deviation (sd), the standardized effect size (SES), and the f fraction defined as the fraction of original deviation that could be attributed to biogeography when comparing the null distributions "H0" and "H0 biogeo".
+which indicates the mean values of the null distributions of the test statistic under "H0" and "H0 biogeo", their standard deviations (sd), their standardized effect sizes (SES), and the f fraction defined as the fraction of original deviation that could be attributed to biogeography when comparing the null distributions "H0" and "H0 biogeo".
 
 
 <p align="center">
@@ -90,7 +90,7 @@ which indicates the mean values of the null distributions of the test statistic 
 </p>
 
 <p align="center">
-    <b>A toy example of an interaction network between orchids (in green) and mycorrhizal fungi (in brown) informed with the phylogenetic trees of each guild.</b>
+    <b>Null distributions of the Mantel correlation (R) expected under "H0" (random permutations; in blue) or under "H0 biogeo" (biogeographic-based permutations; in green) compared with the original Mantel correlation (in red).</b>
 </p>
 
 
