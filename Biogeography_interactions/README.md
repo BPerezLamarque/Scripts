@@ -188,5 +188,14 @@ The output of  `compare_null_models` is then:
     <b>Null distributions of the ParaFit statistic expected under "H0" (random permutations; in blue) or under "H0 biogeo" (biogeographic-based permutations; in green) compared with the original statistic (in red).</b>
 </p>
 
-#Interpretations
+
+
+
+# Interpretations
+
+
+
+
+
+
 
