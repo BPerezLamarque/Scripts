@@ -18,6 +18,13 @@ To do so, it performs biogeography-based permutations.
 <br> 
 
 
+# Contents:
+**[Installation](#install-the-evoli-package)**\
+**[Run Mantel tests](#run-mantel-tests)**\
+**[Run PACo](#run-paco)**\
+**[Run ParaFit](#run-parafit)**\
+**[Interpretations](#interpretations)**
+
 
 # Install the EVOLI package
 
@@ -180,4 +187,6 @@ The output of  `compare_null_models` is then:
 <p align="center">
     <b>Null distributions of the ParaFit statistic expected under "H0" (random permutations; in blue) or under "H0 biogeo" (biogeographic-based permutations; in green) compared with the original statistic (in red).</b>
 </p>
+
+#Interpretations
 
