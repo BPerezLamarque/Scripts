@@ -198,7 +198,7 @@ The output of `compare_null_models` is then:
 In this example, we test whether the phylogenetic signal in the bacterial gut microbiota of birds can be explained by the biogeography of birds (see Ibos et al. 2026 for more details on the data). 
 By running a Mantel test, we obtain a Mantel correlation of `R=0.13` and the associated p-values are `p=0.001` under "H0" and `p=0.001` under "H0 biogeo", indicating that the phylogenetic signal is species interaction remains significant when biogeography-constrained permutations are performed. 
 
-As illustrated in the following figure, the null distributions under "H0" and "H0 biogeo" have similar shapes, and their associated standardized effect sizes are similar: `SES(H0)=6.41` and `SES(H0 biogeo)=6.47`. 
+As illustrated by the following figure, the null expectations under "H0" and "H0 biogeo" have similar distributions, and their associated standardized effect sizes are similar: `SES(H0)=6.41` and `SES(H0 biogeo)=6.47`. 
 
 The f fraction defined as the fraction of original deviation that could be attributed to biogeography when comparing the null distributions "H0" and "H0 biogeo" is equal to `f=0.03`. It means that accounting for biogeography could only explain 3% of the observed signal. 
 
@@ -222,13 +222,7 @@ In this example, we test whether the cophylogenetic signal in the arbuscular myc
 By running the PACo method, we obtain a PACo statistic of `R^2=0.002` and the associated p-values are `p=0.006` under "H0" and `p=0.07` under "H0 biogeo", indicating that the phylogenetic signal is species interaction is not longer significant when biogeography-constrained permutations are used. 
 
 
-PACo R2	p-value under H0	p-value under H0 biogeo	SES 
-under H0	SES under H0 biogeo	fraction f
-0.002	0.006	0.07	3.09	1.59	0.35
-
-
-
-As illustrated in the following figure, the null distributions under "H0" and "H0 biogeo" have different shapes, and the standardized effect size under "H0" is greater than under "H0 biogeo": `SES(H0)=3.09` and `SES(H0 biogeo)=1.59`. 
+As illustrated by the following figure, the null expectations under "H0" and "H0 biogeo" have different distributions, and the standardized effect size under "H0" is greater than under "H0 biogeo": `SES(H0)=3.09` and `SES(H0 biogeo)=1.59`. 
 The f fraction defined as the fraction of original deviation that could be attributed to biogeography when comparing the null distributions "H0" and "H0 biogeo" is equal to `f=0.35`. It means that accounting for biogeography could explain 35% of the observed signal. 
 
 To conclude, the cophylogenetic signal observed in arbuscular mycorrhizal symbiosis may be influenced by plant biogeography. However, this does not demonstrate a causal effect, as the observed pattern could also result from confounding variables.
