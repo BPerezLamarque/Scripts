@@ -61,6 +61,21 @@ plot_null_model(PACo_result, "paco")
 ```
 
 
+The PACo statistic for cophylogenetic signal is `R^2=0.22` and the associated p-value is `p=0.001` under "H0". 
+
+
+<p align="center">
+    <img src="https://github.com/BPerezLamarque/Scripts/blob/master/Cophylogenetic_signal/plots/results_PACo_H0_example.png" width="500">
+</p>
+
+<p align="center">
+    <b>Null distribution of the PACo statistic (R^2) expected under "H0" (random permutations; in blue) compared with the original statistic (in red).</b>
+</p>
+
+
+
+
+
 ## Run ParaFit
 ```r
 # Run ParaFit under "H0" (random shuffling of the species labels)
@@ -73,6 +88,18 @@ parafit_result[c("ParaFitGlobal","p")]
 plot_null_model(parafit_result, "parafit")
 
 ```
+
+
+The ParaFit statistic for cophylogenetic signal is `ParaFitGlobal=663579728` and the associated p-value is `p=0.004` under "H0". 
+
+
+<p align="center">
+    <img src="https://github.com/BPerezLamarque/Scripts/blob/master/Cophylogenetic_signal/plots/results_Parafit_H0_example.png" width="500">
+</p>
+
+<p align="center">
+    <b>Null distribution of the ParaFit statistic expected under "H0" (random permutations; in blue) compared with the original statistic (in red).</b>
+</p>
 
 
 
