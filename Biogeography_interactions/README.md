@@ -75,21 +75,18 @@ The Mantel correlation for phylogenetic signal in species interaction in clade A
 
 The output of  `compare_null_models` is then:
 
+<p align="center">
 | Null model | mean | sd | SES | f fraction | 
 | --- | --- | --- | --- | --- |
 | Random permutations (H0) | -0.0044 | 0.0704 | 5.6639 |   |
-| --- | --- | --- | --- | --- |
 | Biogeographic-based permutations (H0 biogeo) | 0.3919 | 0.023 | 0.1073 |  0.9938 |
+</p>
 
-
-
-which corresponds to the number of orchid species (**nb_A**), the number of fungal species (**nb_B**), and the Mantel correlation between phylogenetic distances and degree difference distances for orchids (**mantel_cor_A**), its associated upper p-value (**pvalue_upper_A**, *i.e.* the fraction of permutations that led to higher correlation values), and its associated lower p-value (**pvalue_lower_A**, *i.e.* the fraction of permutations that led to lower correlation values).
-
-
+which indicates the mean values of the null distributions of the test statistic under "H0" and "H0 biogeo", their standard deviation (sd), the standardized effect size (SES), and the f fraction defined as the fraction of original deviation that could be attributed to biogeography when comparing the null distributions "H0" and "H0 biogeo".
 
 
 <p align="center">
-    <img src="https://github.com/BPerezLamarque/Phylosignal_network/blob/master/example/figures.png" width="500">
+    <img src="https://github.com/BPerezLamarque/Scripts/blob/master/Biogeography_interactions/plots/results_Mantel_example.png" width="500">
 </p>
 
 <p align="center">
