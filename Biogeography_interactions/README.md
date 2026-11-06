@@ -71,7 +71,7 @@ plot_null_models_comparison(mantel_result, mantel_result_biogeo, "mantel")
 
 ```
 
-The Mantel correlation for phylogenetic signal in species interaction in clade A is `R=0.39` and the associated p-values are `p=0.001` under "H0" and `p=0.443` under "H0 biogeo". 
+The Mantel correlation for phylogenetic signal in species interactions in clade A is `R=0.39` and the associated p-values are `p=0.001` under "H0" and `p=0.443` under "H0 biogeo". 
 
 The output of  `compare_null_models` is then:
 
@@ -118,6 +118,28 @@ plot_null_models_comparison(PACo_result, PACo_result_biogeo, "paco")
 
 ```
 
+
+The PACo statistic for cophylogenetic signal is `R^2=0.22` and the associated p-values are `p=0.001` under "H0" and `p=0.056` under "H0 biogeo". 
+
+The output of  `compare_null_models` is then:
+
+
+| Null model | mean | sd | SES | f fraction | 
+| --- | --- | --- | --- | --- |
+| Random permutations (H0) | 0.0888 | 0.0212 | 6.2955 |   |
+| Biogeographic-based permutations (H0 biogeo) | 0.2065 | 0.0097 | 1.6292 |  0.882 |
+
+
+<p align="center">
+    <img src="https://github.com/BPerezLamarque/Scripts/blob/master/Biogeography_interactions/plots/results_PACo_example.png" width="500">
+</p>
+
+<p align="center">
+    <b>Null distributions of the PACo statistic (R^2) expected under "H0" (random permutations; in blue) or under "H0 biogeo" (biogeographic-based permutations; in green) compared with the original statistic (in red).</b>
+</p>
+
+
+
 # Run ParaFit: 
 
 ```r
@@ -138,4 +160,24 @@ plot_null_models_comparison(parafit_result, parafit_result_biogeo, "parafit")
 
 
 ```
+
+The ParaFit statistic for cophylogenetic signal is `ParaFitGlobal=663579728` and the associated p-values are `p=0.002` under "H0" and `p=0.21` under "H0 biogeo". 
+
+The output of  `compare_null_models` is then:
+
+
+| Null model | mean | sd | SES | f fraction | 
+| --- | --- | --- | --- | --- |
+| Random permutations (H0) | 268576964 | 89957719 | 4.391 |   |
+| Biogeographic-based permutations (H0 biogeo) | 642349917 | 20173864 | 1.0523 |  0.9463 |
+
+
+
+<p align="center">
+    <img src="https://github.com/BPerezLamarque/Scripts/blob/master/Biogeography_interactions/plots/results_Parafit_example.png" width="500">
+</p>
+
+<p align="center">
+    <b>Null distributions of the ParaFit statistic expected under "H0" (random permutations; in blue) or under "H0 biogeo" (biogeographic-based permutations; in green) compared with the original statistic (in red).</b>
+</p>
 
