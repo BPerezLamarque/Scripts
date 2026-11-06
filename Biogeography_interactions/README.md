@@ -75,12 +75,12 @@ The Mantel correlation for phylogenetic signal in species interaction in clade A
 
 The output of  `compare_null_models` is then:
 
-<p align="center">
+
 | Null model | mean | sd | SES | f fraction | 
 | --- | --- | --- | --- | --- |
 | Random permutations (H0) | -0.0044 | 0.0704 | 5.6639 |   |
 | Biogeographic-based permutations (H0 biogeo) | 0.3919 | 0.023 | 0.1073 |  0.9938 |
-</p>
+
 
 which indicates the mean values of the null distributions of the test statistic under "H0" and "H0 biogeo", their standard deviation (sd), the standardized effect size (SES), and the f fraction defined as the fraction of original deviation that could be attributed to biogeography when comparing the null distributions "H0" and "H0 biogeo".
 
