@@ -196,7 +196,7 @@ The output of `compare_null_models` is then:
 ## Example 1: Phylogenetic signal in the gut microbiota of birds 
 
 In this example, we test whether the phylogenetic signal in the bacterial gut microbiota of birds can be explained by the biogeography of birds (see Ibos et al. 2026 for more details on the data). 
-By running a Mantel test, we obtain a Mantel correlation of `R=0.13` and the associated p-values are `p=0.001` under "H0" and `p=0.001` under "H0 biogeo", indicating that the phylogenetic signal is species interaction remains significant when biogeography-constrained permutations are performed. 
+By running a Mantel test, we obtain a Mantel correlation of `R=0.13` and the associated p-values are `p=0.001` under "H0" and `p=0.001` under "H0 biogeo", indicating that the phylogenetic signal in species interactions remains significant when biogeography-constrained permutations are performed. 
 
 As illustrated by the following figure, the null expectations under "H0" and "H0 biogeo" have similar distributions, and their associated standardized effect sizes are similar: `SES(H0)=6.41` and `SES(H0 biogeo)=6.47`. 
 
@@ -211,7 +211,7 @@ To conclude, the phylogenetic signal in the gut microbiota of birds does not see
 </p>
 
 <p align="center">
-    <b>Null distributions of the Mantel correlation (R) expected under "H0" (random permutations; in blue) or under "H0 biogeo" (biogeographic-based permutations; in green) compared with the original Mantel correlation (in red). In the case of the gut microbiota of birds, the two null distributions are very similar, indicating that we can exclude that bird biogeography explain to the phylogenetic signal.</b>
+    <b>Null distributions of the Mantel correlation (R) expected under "H0" (random permutations; in blue) or under "H0 biogeo" (biogeographic-based permutations; in green) compared with the original Mantel correlation (in red). In the case of the gut microbiota of birds, the two null distributions are very similar, indicating that we can exclude that bird biogeography explains the phylogenetic signal.</b>
 </p>
 
 
@@ -219,7 +219,7 @@ To conclude, the phylogenetic signal in the gut microbiota of birds does not see
 ## Example 2: Cophylogenetic signal in the arbuscular mycorrhizal symbiosis  
 
 In this example, we test whether the cophylogenetic signal in the arbuscular mycorrhizal symbiosis can be explained by the biogeography of plants (see Ibos et al. 2026 for more details on the data). 
-By running the PACo method, we obtain a PACo statistic of `R^2=0.002` and the associated p-values are `p=0.006` under "H0" and `p=0.07` under "H0 biogeo", indicating that the phylogenetic signal is species interaction is not longer significant when biogeography-constrained permutations are used. 
+By running the PACo method, we obtain a PACo statistic of `R^2=0.002` and the associated p-values are `p=0.006` under "H0" and `p=0.07` under "H0 biogeo", indicating that the cophylogenetic signal is not longer significant when biogeography-constrained permutations are used. 
 
 
 As illustrated by the following figure, the null expectations under "H0" and "H0 biogeo" have different distributions, and the standardized effect size under "H0" is greater than under "H0 biogeo": `SES(H0)=3.09` and `SES(H0 biogeo)=1.59`. 
@@ -233,7 +233,7 @@ To conclude, the cophylogenetic signal observed in arbuscular mycorrhizal symbio
 </p>
 
 <p align="center">
-    <b>Null distributions of the PACo statistic (R^2) expected under "H0" (random permutations; in blue) or under "H0 biogeo" (biogeographic-based permutations; in green) compared with the original PACo statistic (in red). In the case of the arbuscular mycorrhizal symbiosis, the two null distributions are very different, and a R^2 value greater or equal to the observed R^2 is likely to be obtained under "H0 biogeo" (p=0.007) indicating that we cannot exclude that plant biogeography may explain the cophylogenetic signal observed in this mycorrhizal symbiosis.</b>
+    <b>Null distributions of the PACo statistic (R^2) expected under "H0" (random permutations; in blue) or under "H0 biogeo" (biogeographic-based permutations; in green) compared with the original PACo statistic (in red). In the case of the arbuscular mycorrhizal symbiosis, the two null distributions are different, and a R^2 value greater or equal to the observed R^2 is likely to be obtained under "H0 biogeo" (p=0.007) indicating that we cannot exclude that plant biogeography may explain the cophylogenetic signal observed in this mycorrhizal symbiosis.</b>
 </p>
 
 
