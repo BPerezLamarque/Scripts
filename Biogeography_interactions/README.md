@@ -170,7 +170,7 @@ plot_null_models_comparison(parafit_result, parafit_result_biogeo, "parafit")
 
 The ParaFit statistic for cophylogenetic signal is `ParaFitGlobal=663579728` and the associated p-values are `p=0.002` under "H0" and `p=0.21` under "H0 biogeo". 
 
-The output of  `compare_null_models` is then:
+The output of `compare_null_models` is then:
 
 
 | Null model | mean | sd | SES | f fraction | 
