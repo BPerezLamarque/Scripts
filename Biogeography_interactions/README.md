@@ -237,5 +237,11 @@ To conclude, the cophylogenetic signal observed in arbuscular mycorrhizal symbio
 </p>
 
 
+# To run eMPRess:
+
+To evaluate the effect of biogeography on patterns of phylogenetic congruence using eMPRess, one needs to mix R scripts with bash scripts that calls eMPRess (which is an external software; see here for the installation: <a href="https://github.com/ssantichaivekin/empress/wiki/Install-Empress-with-Command-Line-Interface-for-Development"> GitHub page</a>).
+All the scripts necessary for running the approach   
+<a href="https://github.com/BPerezLamarque/Scripts/tree/master/Biogeography_interactions/plots/script_biogeo_empress.R">can be found here</a>.
+
 
 
